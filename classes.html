@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classes & Subjects — Excel Academy</title>
+  <meta name="description" content="Explore available classes at Excel Academy. Coaching for Classes 8–12 in Mathematics, Physics, Chemistry, Biology, English, and Computer Science." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script type="module" src="/src/js/main.js"></script>
+  <script type="module" src="/src/js/classes.js"></script>
+  <style>
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-bottom: var(--space-10);
+    }
+    .filter-tab {
+      padding: var(--space-2) var(--space-6);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-gray-500);
+      background: var(--color-bg-alt);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: all var(--transition-base);
+    }
+    .filter-tab:hover {
+      border-color: var(--color-primary-300);
+      color: var(--color-primary-600);
+    }
+    .filter-tab.active {
+      background: var(--color-primary-600);
+      color: white;
+      border-color: var(--color-primary-600);
+    }
+    .class-card {
+      background: var(--color-bg-alt);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      border: 1px solid var(--color-border);
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+      display: flex;
+      flex-direction: column;
+    }
+    .class-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+    }
+    .class-card__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: var(--space-4);
+    }
+    .class-card__grade {
+      font-family: var(--font-heading);
+      font-size: var(--text-2xl);
+      font-weight: 800;
+      color: var(--color-gray-900);
+    }
+    .class-card__badges {
+      display: flex;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+    }
+    .class-card__description {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-5);
+      line-height: var(--leading-normal);
+    }
+    .class-card__subjects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-bottom: var(--space-5);
+    }
+    .class-card__subject {
+      padding: var(--space-1) var(--space-3);
+      background: var(--color-primary-50);
+      color: var(--color-primary-700);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 600;
+    }
+    .class-card__details {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      margin-bottom: var(--space-6);
+      padding: var(--space-4);
+      background: var(--color-gray-50);
+      border-radius: var(--radius-md);
+    }
+    .class-card__detail {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-size: var(--text-sm);
+      color: var(--color-gray-600);
+    }
+    .class-card__detail span:first-child {
+      font-size: var(--text-base);
+      flex-shrink: 0;
+    }
+    .class-card__footer {
+      margin-top: auto;
+    }
+    .class-card__footer .btn {
+      width: 100%;
+      justify-content: center;
+    }
+    .classes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-8);
+    }
+    @media (max-width: 1024px) {
+      .classes-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .classes-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="/index.html" class="navbar__logo">
+        <div class="navbar__logo-icon">EA</div>
+        Excel Academy
+      </a>
+      <div class="navbar__links" id="nav-links">
+        <a href="/index.html" class="navbar__link">Home</a>
+        <a href="/about.html" class="navbar__link">About</a>
+        <a href="/classes.html" class="navbar__link">Classes</a>
+        <a href="/schedule.html" class="navbar__link">Schedule</a>
+        <a href="/results.html" class="navbar__link">Results</a>
+        <a href="/contact.html" class="navbar__link">Contact</a>
+        <a href="/login.html" class="navbar__link">Login</a>
+        <div class="navbar__cta">
+          <a href="/contact.html" class="btn btn--primary btn--sm">Book Demo Class</a>
+        </div>
+      </div>
+      <div class="navbar__hamburger" id="nav-hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="nav-overlay"></div>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="container">
+      <div class="page-header__breadcrumb">
+        <a href="/index.html">Home</a>
+        <span>/</span>
+        <span class="current">Classes & Subjects</span>
+      </div>
+      <h1 class="page-header__title">Classes & Subjects</h1>
+      <p class="page-header__subtitle">Choose the right batch for your grade. Small groups, expert teaching, and exam-focused preparation.</p>
+    </div>
+  </section>
+
+  <!-- CLASSES -->
+  <section class="section">
+    <div class="container">
+      <!-- Filter Tabs -->
+      <div class="filter-tabs reveal">
+        <button class="filter-tab active" data-filter="all">All Classes</button>
+        <button class="filter-tab" data-filter="8">Class 8</button>
+        <button class="filter-tab" data-filter="9">Class 9</button>
+        <button class="filter-tab" data-filter="10">Class 10</button>
+        <button class="filter-tab" data-filter="11">Class 11</button>
+        <button class="filter-tab" data-filter="12">Class 12</button>
+      </div>
+
+      <div class="classes-grid stagger-children">
+        <!-- Class 8 -->
+        <div class="class-card reveal" data-grade="8">
+          <div class="class-card__header">
+            <div class="class-card__grade">Class 8</div>
+            <div class="class-card__badges">
+              <span class="badge badge--offline">Offline</span>
+            </div>
+          </div>
+          <p class="class-card__description">Building a strong foundation in science and mathematics. Focus on NCERT concepts, problem-solving skills, and preparing for higher classes.</p>
+          <div class="class-card__subjects">
+            <span class="class-card__subject">Mathematics</span>
+            <span class="class-card__subject">Science</span>
+            <span class="class-card__subject">English</span>
+          </div>
+          <div class="class-card__details">
+            <div class="class-card__detail"><span>🕐</span> Mon, Wed, Fri — 3:00 PM to 4:30 PM</div>
+            <div class="class-card__detail"><span>👥</span> Max 12 students per batch</div>
+            <div class="class-card__detail"><span>📋</span> CBSE / ICSE Syllabus</div>
+          </div>
+          <div class="class-card__footer">
+            <a href="/contact.html" class="btn btn--secondary">Enquire Now</a>
+          </div>
+        </div>
+
+        <!-- Class 9 -->
+        <div class="class-card reveal" data-grade="9">
+          <div class="class-card__header">
+            <div class="class-card__grade">Class 9</div>
+            <div class="class-card__badges">
+              <span class="badge badge--offline">Offline</span>
+              <span class="badge badge--online">Online</span>
+            </div>
+          </div>
+          <p class="class-card__description">Critical year for building board exam habits. Thorough coverage of NCERT with additional practice material and regular chapter tests.</p>
+          <div class="class-card__subjects">
+            <span class="class-card__subject">Mathematics</span>
+            <span class="class-card__subject">Physics</span>
+            <span class="class-card__subject">Chemistry</span>
+            <span class="class-card__subject">Biology</span>
+            <span class="class-card__subject">English</span>
+          </div>
+          <div class="class-card__details">
+            <div class="class-card__detail"><span>🕐</span> Mon to Sat — 4:30 PM to 6:00 PM</div>
+            <div class="class-card__detail"><span>👥</span> Max 15 students per batch</div>
+            <div class="class-card__detail"><span>📋</span> CBSE / ICSE Syllabus</div>
+          </div>
+          <div class="class-card__footer">
+            <a href="/contact.html" class="btn btn--secondary">Enquire Now</a>
+          </div>
+        </div>
+
+        <!-- Class 10 -->
+        <div class="class-card reveal" data-grade="10">
+          <div class="class-card__header">
+            <div class="class-card__grade">Class 10</div>
+            <div class="class-card__badges">
+              <span class="badge badge--offline">Offline</span>
+              <span class="badge badge--online">Online</span>
+            </div>
+          </div>
+          <p class="class-card__description">Board exam year — intensive preparation with complete syllabus coverage, mock tests, previous year papers, and time management training.</p>
+          <div class="class-card__subjects">
+            <span class="class-card__subject">Mathematics</span>
+            <span class="class-card__subject">Physics</span>
+            <span class="class-card__subject">Chemistry</span>
+            <span class="class-card__subject">Biology</span>
+            <span class="class-card__subject">English</span>
+          </div>
+          <div class="class-card__details">
+            <div class="class-card__detail"><span>🕐</span> Mon to Sat — 6:00 PM to 8:00 PM</div>
+            <div class="class-card__detail"><span>👥</span> Max 15 students per batch</div>
+            <div class="class-card__detail"><span>📋</span> CBSE Board + Sample Papers</div>
+          </div>
+          <div class="class-card__footer">
+            <a href="/contact.html" class="btn btn--primary">Enquire Now</a>
+          </div>
+        </div>
+
+        <!-- Class 11 Science -->
+        <div class="class-card reveal" data-grade="11">
+          <div class="class-card__header">
+            <div class="class-card__grade">Class 11 — Science</div>
+            <div class="class-card__badges">
+              <span class="badge badge--offline">Offline</span>
+              <span class="badge badge--online">Online</span>
+            </div>
+          </div>
+          <p class="class-card__description">Advanced science coaching with dual focus — school exams and competitive entrance preparation (JEE/NEET foundation). Strong concept building year.</p>
+          <div class="class-card__subjects">
+            <span class="class-card__subject">Mathematics</span>
+            <span class="class-card__subject">Physics</span>
+            <span class="class-card__subject">Chemistry</span>
+            <span class="class-card__subject">Computer Sc.</span>
+          </div>
+          <div class="class-card__details">
+            <div class="class-card__detail"><span>🕐</span> Mon to Sat — 8:00 AM to 10:00 AM</div>
+            <div class="class-card__detail"><span>👥</span> Max 12 students per batch</div>
+            <div class="class-card__detail"><span>📋</span> CBSE + JEE/NEET Foundation</div>
+          </div>
+          <div class="class-card__footer">
+            <a href="/contact.html" class="btn btn--secondary">Enquire Now</a>
+          </div>
+        </div>
+
+        <!-- Class 11 Bio -->
+        <div class="class-card reveal" data-grade="11">
+          <div class="class-card__header">
+            <div class="class-card__grade">Class 11 — Biology</div>
+            <div class="class-card__badges">
+              <span class="badge badge--offline">Offline</span>
+            </div>
+          </div>
+          <p class="class-card__description">Dedicated Biology batch for medical aspirants. Comprehensive NCERT coverage with NEET-level practice and diagram-based learning.</p>
+          <div class="class-card__subjects">
+            <span class="class-card__subject">Biology</span>
+            <span class="class-card__subject">Physics</span>
+            <span class="class-card__subject">Chemistry</span>
+          </div>
+          <div class="class-card__details">
+            <div class="class-card__detail"><span>🕐</span> Mon to Sat — 10:00 AM to 12:00 PM</div>
+            <div class="class-card__detail"><span>👥</span> Max 10 students per batch</div>
+            <div class="class-card__detail"><span>📋</span> CBSE + NEET Preparation</div>
+          </div>
+          <div class="class-card__footer">
+            <a href="/contact.html" class="btn btn--secondary">Enquire Now</a>
+          </div>
+        </div>
+
+        <!-- Class 12 -->
+        <div class="class-card reveal" data-grade="12">
+          <div class="class-card__header">
+            <div class="class-card__grade">Class 12</div>
+            <div class="class-card__badges">
+              <span class="badge badge--offline">Offline</span>
+              <span class="badge badge--online">Online</span>
+            </div>
+          </div>
+          <p class="class-card__description">Final year intensive — complete board exam preparation with mock tests, revision sessions, and competitive exam guidance. Results-driven approach.</p>
+          <div class="class-card__subjects">
+            <span class="class-card__subject">Mathematics</span>
+            <span class="class-card__subject">Physics</span>
+            <span class="class-card__subject">Chemistry</span>
+            <span class="class-card__subject">English</span>
+            <span class="class-card__subject">Computer Sc.</span>
+          </div>
+          <div class="class-card__details">
+            <div class="class-card__detail"><span>🕐</span> Mon to Sat — 2:00 PM to 4:00 PM</div>
+            <div class="class-card__detail"><span>👥</span> Max 12 students per batch</div>
+            <div class="class-card__detail"><span>📋</span> CBSE Board + JEE/NEET</div>
+          </div>
+          <div class="class-card__footer">
+            <a href="/contact.html" class="btn btn--primary">Enquire Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO STRIP -->
+  <section class="section section--dark" style="padding: var(--space-16) 0;">
+    <div class="container">
+      <div class="grid-3" style="text-align: center;">
+        <div class="reveal">
+          <div style="font-size: var(--text-3xl); margin-bottom: var(--space-3);">📞</div>
+          <h4 style="color: white; margin-bottom: var(--space-2);">Need Help Choosing?</h4>
+          <p style="color: var(--color-gray-400); font-size: var(--text-sm);">Call us and we'll help you pick the right batch and subjects for your child.</p>
+          <a href="tel:+919876543210" class="btn btn--white btn--sm" style="margin-top: var(--space-4);">Call Now</a>
+        </div>
+        <div class="reveal">
+          <div style="font-size: var(--text-3xl); margin-bottom: var(--space-3);">🎯</div>
+          <h4 style="color: white; margin-bottom: var(--space-2);">Free Demo Class</h4>
+          <p style="color: var(--color-gray-400); font-size: var(--text-sm);">Try a class before you commit. Experience our teaching style with no obligations.</p>
+          <a href="/contact.html" class="btn btn--accent btn--sm" style="margin-top: var(--space-4);">Book Demo</a>
+        </div>
+        <div class="reveal">
+          <div style="font-size: var(--text-3xl); margin-bottom: var(--space-3);">💬</div>
+          <h4 style="color: white; margin-bottom: var(--space-2);">WhatsApp Query</h4>
+          <p style="color: var(--color-gray-400); font-size: var(--text-sm);">Send us a quick message on WhatsApp for instant answers to your questions.</p>
+          <a href="https://wa.me/919876543210" class="btn btn--whatsapp btn--sm" style="margin-top: var(--space-4);" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-name">Excel Academy</div>
+          <p class="footer__brand-desc">Personalised coaching for Classes 8–12. Building strong foundations, one student at a time.</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Quick Links</h4>
+          <div class="footer__links">
+            <a href="/index.html">Home</a>
+            <a href="/about.html">About</a>
+            <a href="/classes.html">Classes</a>
+            <a href="/schedule.html">Schedule</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Resources</h4>
+          <div class="footer__links">
+            <a href="/results.html">Results</a>
+            <a href="/contact.html">Contact</a>
+            <a href="/login.html">Student Login</a>
+            <a href="/login.html">Teacher Login</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Contact</h4>
+          <div class="footer__links">
+            <a href="tel:+919876543210">+91 98765 43210</a>
+            <a href="mailto:info@excelacademy.in">info@excelacademy.in</a>
+            <a href="https://wa.me/919876543210" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2024 Excel Academy. All rights reserved.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="YouTube">▶️</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+/* ============================================
+   BASE — Reset, Typography, Globals
+   ============================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: var(--navbar-height);
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-primary-600);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-700);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: var(--leading-tight);
+  color: var(--color-gray-900);
+  font-weight: 700;
+}
+
+h1 { font-size: var(--text-5xl); }
+h2 { font-size: var(--text-4xl); }
+h3 { font-size: var(--text-2xl); }
+h4 { font-size: var(--text-xl); }
+h5 { font-size: var(--text-lg); }
+
+p {
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+}
+
+input, textarea, select {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+}
+
+::selection {
+  background-color: var(--color-primary-200);
+  color: var(--color-primary-900);
+}
+
+/* ── Container ── */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+/* ── Section ── */
+.section {
+  padding: var(--space-24) 0;
+}
+
+.section--dark {
+  background-color: var(--color-bg-dark);
+}
+
+.section--alt {
+  background-color: var(--color-gray-100);
+}
+
+/* ── Section Header ── */
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.section-header__label {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary-600);
+  background-color: var(--color-primary-50);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-4);
+}
+
+.section-header__title {
+  font-size: var(--text-4xl);
+  margin-bottom: var(--space-4);
+}
+
+.section-header__subtitle {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ── Dark section overrides ── */
+.section--dark .section-header__label {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-primary-300);
+}
+
+.section--dark .section-header__title {
+  color: var(--color-text-light);
+}
+
+.section--dark .section-header__subtitle {
+  color: var(--color-gray-400);
+}
+
+.section--dark h3,
+.section--dark h4 {
+  color: var(--color-text-light);
+}
+
+.section--dark p {
+  color: var(--color-gray-400);
+}
+
+/* ── Utility ── */
+.text-center { text-align: center; }
+.text-primary { color: var(--color-primary-600); }
+.text-accent { color: var(--color-accent-500); }
+.mt-4 { margin-top: var(--space-4); }
+.mt-8 { margin-top: var(--space-8); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-8 { margin-bottom: var(--space-8); }

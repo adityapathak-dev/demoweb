@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Excel Academy</title>
+  <meta name="description" content="Meet the teacher behind Excel Academy. 12+ years of experience, M.Sc in Mathematics, and a passion for helping students excel in board and competitive exams." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script type="module" src="/src/js/main.js"></script>
+  <style>
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: var(--space-12);
+      align-items: start;
+    }
+    .teacher-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background: linear-gradient(135deg, var(--color-primary-100), var(--color-primary-200));
+      border-radius: var(--radius-xl);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary-600);
+      font-size: var(--text-6xl);
+      position: relative;
+      overflow: hidden;
+    }
+    .teacher-photo::after {
+      content: 'Teacher Photo';
+      font-size: var(--text-sm);
+      font-family: var(--font-body);
+      color: var(--color-primary-400);
+      margin-top: var(--space-2);
+      font-weight: 500;
+    }
+    .teacher-info {
+      padding-top: var(--space-4);
+    }
+    .teacher-info h2 {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-2);
+    }
+    .teacher-info .role {
+      font-size: var(--text-lg);
+      color: var(--color-primary-600);
+      font-weight: 600;
+      margin-bottom: var(--space-6);
+    }
+    .teacher-info p {
+      margin-bottom: var(--space-4);
+      line-height: var(--leading-normal);
+    }
+    .qualifications {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin: var(--space-6) 0;
+    }
+    .qualifications .badge {
+      font-size: var(--text-sm);
+      padding: var(--space-2) var(--space-4);
+    }
+    .philosophy-card {
+      background: linear-gradient(135deg, var(--color-primary-50), var(--color-primary-100));
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      margin-top: var(--space-8);
+      border-left: 4px solid var(--color-primary-500);
+    }
+    .philosophy-card h3 {
+      color: var(--color-primary-700);
+      margin-bottom: var(--space-4);
+    }
+    .philosophy-card p {
+      color: var(--color-primary-800);
+      font-style: italic;
+    }
+    .why-list {
+      margin-top: var(--space-6);
+    }
+    .why-list li {
+      display: flex;
+      gap: var(--space-3);
+      align-items: flex-start;
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid var(--color-border);
+      color: var(--color-gray-700);
+    }
+    .why-list li:last-child {
+      border-bottom: none;
+    }
+    .why-list li span {
+      font-size: var(--text-xl);
+      flex-shrink: 0;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="/index.html" class="navbar__logo">
+        <div class="navbar__logo-icon">EA</div>
+        Excel Academy
+      </a>
+      <div class="navbar__links" id="nav-links">
+        <a href="/index.html" class="navbar__link">Home</a>
+        <a href="/about.html" class="navbar__link">About</a>
+        <a href="/classes.html" class="navbar__link">Classes</a>
+        <a href="/schedule.html" class="navbar__link">Schedule</a>
+        <a href="/results.html" class="navbar__link">Results</a>
+        <a href="/contact.html" class="navbar__link">Contact</a>
+        <a href="/login.html" class="navbar__link">Login</a>
+        <div class="navbar__cta">
+          <a href="/contact.html" class="btn btn--primary btn--sm">Book Demo Class</a>
+        </div>
+      </div>
+      <div class="navbar__hamburger" id="nav-hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="nav-overlay"></div>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="container">
+      <div class="page-header__breadcrumb">
+        <a href="/index.html">Home</a>
+        <span>/</span>
+        <span class="current">About</span>
+      </div>
+      <h1 class="page-header__title">About the Teacher</h1>
+      <p class="page-header__subtitle">Meet the person behind Excel Academy — dedicated to transforming every student's potential into performance.</p>
+    </div>
+  </section>
+
+  <!-- TEACHER PROFILE -->
+  <section class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="reveal-left">
+          <div class="teacher-photo">👨‍🏫</div>
+        </div>
+        <div class="teacher-info reveal-right">
+          <h2>Rajendra Sharma</h2>
+          <div class="role">Founder & Lead Teacher, Excel Academy</div>
+          <p>With over 12 years of experience teaching Mathematics, Physics, and Chemistry, I founded Excel Academy with a simple belief — every student can score well if they're taught the right way.</p>
+          <p>I've worked with 500+ students across Classes 8 to 12, helping them prepare for CBSE boards, ICSE exams, and competitive tests like JEE and NEET. My focus has always been on building conceptual clarity rather than rote memorisation.</p>
+
+          <div class="qualifications">
+            <span class="badge badge--primary">M.Sc. Mathematics</span>
+            <span class="badge badge--primary">B.Ed.</span>
+            <span class="badge badge--accent">12+ Years Experience</span>
+            <span class="badge badge--success">500+ Students</span>
+            <span class="badge badge--primary">CBSE & ICSE Expert</span>
+          </div>
+
+          <div class="philosophy-card">
+            <h3>💡 Teaching Philosophy</h3>
+            <p>"I don't believe in making students memorise formulas. I believe in making them understand why a formula works. When a student truly understands a concept, they don't just pass exams — they develop a love for learning that stays with them for life."</p>
+          </div>
+
+          <h3 style="margin-top: var(--space-10); margin-bottom: var(--space-2);">Why Students Choose Excel Academy</h3>
+          <ul class="why-list">
+            <li><span>✅</span> <div><strong>Personal attention</strong> — I know every student by name, their strengths, and their weak areas. Teaching is never one-size-fits-all here.</div></li>
+            <li><span>✅</span> <div><strong>Concept-first approach</strong> — We start from basics and build up. No shortcuts to understanding, only shortcuts to solving.</div></li>
+            <li><span>✅</span> <div><strong>Regular parent updates</strong> — I share monthly progress reports and am always available for a quick call to discuss your child's performance.</div></li>
+            <li><span>✅</span> <div><strong>Exam-focused preparation</strong> — Mock tests, previous year papers, and time management training ensure students walk into exams with confidence.</div></li>
+            <li><span>✅</span> <div><strong>Safe, supportive environment</strong> — Students feel comfortable asking questions, making mistakes, and learning at their own pace.</div></li>
+            <li><span>✅</span> <div><strong>Affordable quality education</strong> — Premium teaching doesn't have to come with a premium price tag. I keep fees reasonable and transparent.</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE TIMELINE -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-header__label">Experience</span>
+        <h2 class="section-header__title">Teaching Journey</h2>
+      </div>
+      <div class="grid-3 stagger-children">
+        <div class="card reveal" style="text-align: center;">
+          <div style="font-size: var(--text-4xl); margin-bottom: var(--space-3);">🎓</div>
+          <h4 class="card__title">2010 – 2013</h4>
+          <p class="card__text">Started as a home tutor for Classes 9–10, helping 15 students prepare for CBSE board exams.</p>
+        </div>
+        <div class="card reveal" style="text-align: center;">
+          <div style="font-size: var(--text-4xl); margin-bottom: var(--space-3);">📚</div>
+          <h4 class="card__title">2013 – 2018</h4>
+          <p class="card__text">Expanded to cover Classes 8–12 with all science subjects. Moved to a dedicated coaching space. First batch of 50+ scorers.</p>
+        </div>
+        <div class="card reveal" style="text-align: center;">
+          <div style="font-size: var(--text-4xl); margin-bottom: var(--space-3);">🏆</div>
+          <h4 class="card__title">2018 – Present</h4>
+          <p class="card__text">Excel Academy established formally. 500+ students taught. Online batches launched. Consistently producing board toppers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark" style="padding: var(--space-20) 0;">
+    <div class="container" style="text-align: center;">
+      <div class="reveal">
+        <h2 style="color: white; margin-bottom: var(--space-4);">Want to See the Teaching Style?</h2>
+        <p style="color: var(--color-gray-300); font-size: var(--text-lg); max-width: 480px; margin: 0 auto var(--space-8);">
+          Book a free demo class. No fees, no pressure — just experience the difference.
+        </p>
+        <a href="/contact.html" class="btn btn--accent btn--lg">Book a Free Demo Class</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-name">Excel Academy</div>
+          <p class="footer__brand-desc">Personalised coaching for Classes 8–12. Building strong foundations, one student at a time.</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Quick Links</h4>
+          <div class="footer__links">
+            <a href="/index.html">Home</a>
+            <a href="/about.html">About</a>
+            <a href="/classes.html">Classes</a>
+            <a href="/schedule.html">Schedule</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Resources</h4>
+          <div class="footer__links">
+            <a href="/results.html">Results</a>
+            <a href="/contact.html">Contact</a>
+            <a href="/login.html">Student Login</a>
+            <a href="/login.html">Teacher Login</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Contact</h4>
+          <div class="footer__links">
+            <a href="tel:+919876543210">+91 98765 43210</a>
+            <a href="mailto:info@excelacademy.in">info@excelacademy.in</a>
+            <a href="https://wa.me/919876543210" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2024 Excel Academy. All rights reserved.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="YouTube">▶️</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

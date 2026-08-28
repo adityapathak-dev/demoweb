@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schedule — Excel Academy</title>
+  <meta name="description" content="View the weekly class schedule at Excel Academy. Timings for all batches — Classes 8 to 12 — with subject-wise slots from Monday to Saturday." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script type="module" src="/src/js/main.js"></script>
+  <style>
+    .schedule-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: var(--radius-lg);
+    }
+    .schedule-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+      margin-bottom: var(--space-12);
+    }
+    .schedule-info-card {
+      background: var(--color-bg-alt);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      border: 1px solid var(--color-border);
+      text-align: center;
+    }
+    .schedule-info-card h4 {
+      margin-top: var(--space-3);
+      margin-bottom: var(--space-2);
+    }
+    .schedule-info-card p {
+      font-size: var(--text-sm);
+    }
+    .schedule-note {
+      background: var(--color-accent-50);
+      border: 1px solid var(--color-accent-200);
+      border-radius: var(--radius-md);
+      padding: var(--space-4) var(--space-6);
+      margin-top: var(--space-8);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      font-size: var(--text-sm);
+      color: var(--color-accent-700);
+    }
+    .grade-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 600;
+    }
+    .grade-badge--8 { background: #DBEAFE; color: #1D4ED8; }
+    .grade-badge--9 { background: #E0E7FF; color: #4338CA; }
+    .grade-badge--10 { background: #FEF3C7; color: #92400E; }
+    .grade-badge--11 { background: #D1FAE5; color: #065F46; }
+    .grade-badge--12 { background: #FCE7F3; color: #9D174D; }
+    @media (max-width: 768px) {
+      .schedule-info {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="/index.html" class="navbar__logo">
+        <div class="navbar__logo-icon">EA</div>
+        Excel Academy
+      </a>
+      <div class="navbar__links" id="nav-links">
+        <a href="/index.html" class="navbar__link">Home</a>
+        <a href="/about.html" class="navbar__link">About</a>
+        <a href="/classes.html" class="navbar__link">Classes</a>
+        <a href="/schedule.html" class="navbar__link">Schedule</a>
+        <a href="/results.html" class="navbar__link">Results</a>
+        <a href="/contact.html" class="navbar__link">Contact</a>
+        <a href="/login.html" class="navbar__link">Login</a>
+        <div class="navbar__cta">
+          <a href="/contact.html" class="btn btn--primary btn--sm">Book Demo Class</a>
+        </div>
+      </div>
+      <div class="navbar__hamburger" id="nav-hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="nav-overlay"></div>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="container">
+      <div class="page-header__breadcrumb">
+        <a href="/index.html">Home</a>
+        <span>/</span>
+        <span class="current">Schedule</span>
+      </div>
+      <h1 class="page-header__title">Weekly Schedule</h1>
+      <p class="page-header__subtitle">View our regular weekly class timings. All batches run Monday through Saturday.</p>
+    </div>
+  </section>
+
+  <!-- SCHEDULE INFO -->
+  <section class="section">
+    <div class="container">
+      <div class="schedule-info stagger-children">
+        <div class="schedule-info-card reveal">
+          <div style="font-size: var(--text-3xl);">🕐</div>
+          <h4>Morning Batch</h4>
+          <p>8:00 AM – 12:00 PM<br/>Classes 11 & 12</p>
+        </div>
+        <div class="schedule-info-card reveal">
+          <div style="font-size: var(--text-3xl);">☀️</div>
+          <h4>Afternoon Batch</h4>
+          <p>2:00 PM – 4:30 PM<br/>Classes 8 & 12</p>
+        </div>
+        <div class="schedule-info-card reveal">
+          <div style="font-size: var(--text-3xl);">🌙</div>
+          <h4>Evening Batch</h4>
+          <p>4:30 PM – 8:00 PM<br/>Classes 9 & 10</p>
+        </div>
+      </div>
+
+      <!-- SCHEDULE TABLE -->
+      <div class="reveal">
+        <div class="schedule-wrapper">
+          <table class="schedule-table" id="schedule-table">
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Time</th>
+                <th>Subject</th>
+                <th>Class</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="5"><strong>Monday</strong></td>
+                <td>8:00 – 10:00 AM</td>
+                <td>Physics</td>
+                <td><span class="grade-badge grade-badge--11">Class 11</span></td>
+              </tr>
+              <tr>
+                <td>10:00 – 12:00 PM</td>
+                <td>Biology</td>
+                <td><span class="grade-badge grade-badge--11">Class 11</span></td>
+              </tr>
+              <tr>
+                <td>2:00 – 4:00 PM</td>
+                <td>Chemistry</td>
+                <td><span class="grade-badge grade-badge--12">Class 12</span></td>
+              </tr>
+              <tr>
+                <td>4:30 – 6:00 PM</td>
+                <td>Mathematics</td>
+                <td><span class="grade-badge grade-badge--9">Class 9</span></td>
+              </tr>
+              <tr>
+                <td>6:00 – 8:00 PM</td>
+                <td>Mathematics</td>
+                <td><span class="grade-badge grade-badge--10">Class 10</span></td>
+              </tr>
+              <tr>
+                <td rowspan="5"><strong>Tuesday</strong></td>
+                <td>8:00 – 10:00 AM</td>
+                <td>Chemistry</td>
+                <td><span class="grade-badge grade-badge--11">Class 11</span></td>
+              </tr>
+              <tr>
+                <td>10:00 – 12:00 PM</td>
+                <td>Physics</td>
+                <td><span class="grade-badge grade-badge--11">Class 11</span></td>
+              </tr>
+              <tr>
+                <td>2:00 – 4:00 PM</td>
+                <td>Mathematics</td>
+                <td><span class="grade-badge grade-badge--12">Class 12</span></td>
+              </tr>
+              <tr>
+                <td>4:30 – 6:00 PM</td>
+                <td>Science</td>
+                <td><span class="grade-badge grade-badge--9">Class 9</span></td>
+              </tr>
+              <tr>
+                <td>6:00 – 8:00 PM</td>
+                <td>Physics</td>
+                <td><span class="grade-badge grade-badge--10">Class 10</span></td>
+              </tr>
+              <tr>
+                <td rowspan="5"><strong>Wednesday</strong></td>
+                <td>8:00 – 10:00 AM</td>
+                <td>Mathematics</td>
+                <td><span class="grade-badge grade-badge--11">Class 11</span></td>
+              </tr>
+              <tr>
+                <td>10:00 – 12:00 PM</td>
+                <td>Chemistry</td>
+                <td><span class="grade-badge grade-badge--11">Class 11</span></td>
+              </tr>
+              <tr>
+                <td>2:00 – 4:00 PM</td>
+                <td>Physics</td>
+                <td><span class="grade-badge grade-badge--12">Class 12</span></td>
+              </tr>
+              <tr>
+                <td>3:00 – 4:30 PM</td>
+                <td>Mathematics</td>
+                <td><span class="grade-badge grade-badge--8">Class 8</span></td>
+              </tr>
+              <tr>
+                <td>6:00 – 8:00 PM</td>
+                <td>Chemistry</td>
+                <td><span class="grade-badge grade-badge--10">Class 10</span></td>
+              </tr>
+              <tr>
+                <td rowspan="5"><strong>Thursday</strong></td>
+                <td>8:00 – 10:00 AM</td>
+                <td>Physics</td>
+                <td><span class="grade-badge grade-badge--11">Class 11</span></td>
+              </tr>
+              <tr>
+                <td>10:00 – 12:00 PM</td>
+                <td>Biology</td>
+                <td><span class="grade-badge grade-badge--11">Class 11</span></td>
+              </tr>
+              <tr>
+                <td>2:00 – 4:00 PM</td>
+                <td>English</td>
+                <td><span class="grade-badge grade-badge--12">Class 12</span></td>
+              </tr>
+              <tr>
+                <td>4:30 – 6:00 PM</td>
+                <td>English</td>
+                <td><span class="grade-badge grade-badge--9">Class 9</span></td>
+              </tr>
+              <tr>
+                <td>6:00 – 8:00 PM</td>
+                <td>Biology</td>
+                <td><span class="grade-badge grade-badge--10">Class 10</span></td>
+              </tr>
+              <tr>
+                <td rowspan="5"><strong>Friday</strong></td>
+                <td>8:00 – 10:00 AM</td>
+                <td>Chemistry</td>
+                <td><span class="grade-badge grade-badge--11">Class 11</span></td>
+              </tr>
+              <tr>
+                <td>10:00 – 12:00 PM</td>
+                <td>Physics</td>
+                <td><span class="grade-badge grade-badge--11">Class 11</span></td>
+              </tr>
+              <tr>
+                <td>2:00 – 4:00 PM</td>
+                <td>Computer Science</td>
+                <td><span class="grade-badge grade-badge--12">Class 12</span></td>
+              </tr>
+              <tr>
+                <td>3:00 – 4:30 PM</td>
+                <td>Science</td>
+                <td><span class="grade-badge grade-badge--8">Class 8</span></td>
+              </tr>
+              <tr>
+                <td>6:00 – 8:00 PM</td>
+                <td>English</td>
+                <td><span class="grade-badge grade-badge--10">Class 10</span></td>
+              </tr>
+              <tr>
+                <td rowspan="4"><strong>Saturday</strong></td>
+                <td>8:00 – 10:00 AM</td>
+                <td>Mathematics</td>
+                <td><span class="grade-badge grade-badge--11">Class 11</span></td>
+              </tr>
+              <tr>
+                <td>10:00 – 12:00 PM</td>
+                <td>Weekly Test</td>
+                <td><span class="grade-badge grade-badge--11">Class 11</span> <span class="grade-badge grade-badge--12">Class 12</span></td>
+              </tr>
+              <tr>
+                <td>2:00 – 4:00 PM</td>
+                <td>Doubt Session</td>
+                <td><span class="grade-badge grade-badge--10">Class 10</span></td>
+              </tr>
+              <tr>
+                <td>4:30 – 6:00 PM</td>
+                <td>Weekly Test</td>
+                <td><span class="grade-badge grade-badge--9">Class 9</span> <span class="grade-badge grade-badge--10">Class 10</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="schedule-note">
+          <span>📌</span>
+          <div>
+            <strong>Note:</strong> Schedule may vary during exam season. Special revision classes and extra doubt-clearing sessions are added before board exams. Sunday is a holiday. Contact us for the latest schedule updates.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark" style="padding: var(--space-16) 0;">
+    <div class="container" style="text-align: center;">
+      <div class="reveal">
+        <h2 style="color: white; margin-bottom: var(--space-4);">Timing Doesn't Work for You?</h2>
+        <p style="color: var(--color-gray-300); font-size: var(--text-lg); max-width: 480px; margin: 0 auto var(--space-8);">
+          We can arrange flexible timings or online classes. Get in touch and we'll find a slot that works.
+        </p>
+        <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+          <a href="/contact.html" class="btn btn--accent btn--lg">Contact Us</a>
+          <a href="https://wa.me/919876543210" class="btn btn--whatsapp btn--lg" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-name">Excel Academy</div>
+          <p class="footer__brand-desc">Personalised coaching for Classes 8–12. Building strong foundations, one student at a time.</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Quick Links</h4>
+          <div class="footer__links">
+            <a href="/index.html">Home</a>
+            <a href="/about.html">About</a>
+            <a href="/classes.html">Classes</a>
+            <a href="/schedule.html">Schedule</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Resources</h4>
+          <div class="footer__links">
+            <a href="/results.html">Results</a>
+            <a href="/contact.html">Contact</a>
+            <a href="/login.html">Student Login</a>
+            <a href="/login.html">Teacher Login</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Contact</h4>
+          <div class="footer__links">
+            <a href="tel:+919876543210">+91 98765 43210</a>
+            <a href="mailto:info@excelacademy.in">info@excelacademy.in</a>
+            <a href="https://wa.me/919876543210" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2024 Excel Academy. All rights reserved.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="YouTube">▶️</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — Excel Academy</title>
+  <meta name="description" content="Login to your Excel Academy account. Access your dashboard, test results, and study materials." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script type="module" src="/src/js/main.js"></script>
+  <script type="module" src="/src/js/login.js"></script>
+  <style>
+    .login-section {
+      min-height: calc(100vh - var(--navbar-height));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: calc(var(--navbar-height) + var(--space-12)) var(--space-6) var(--space-12);
+      background: linear-gradient(135deg, var(--color-gray-50), var(--color-primary-50));
+    }
+    .login-card__header {
+      text-align: center;
+      margin-bottom: var(--space-8);
+    }
+    .login-card__logo {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-400));
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: var(--text-xl);
+      margin: 0 auto var(--space-4);
+    }
+    .login-card__title {
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      margin-bottom: var(--space-2);
+    }
+    .login-card__subtitle {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+    }
+    .login-form {
+      display: none;
+    }
+    .login-form.active {
+      display: block;
+    }
+    .login-form .form-group {
+      margin-bottom: var(--space-5);
+    }
+    .login-form .btn {
+      width: 100%;
+      justify-content: center;
+    }
+    .login-forgot {
+      text-align: center;
+      margin-top: var(--space-4);
+    }
+    .login-forgot a {
+      font-size: var(--text-sm);
+      color: var(--color-primary-600);
+      font-weight: 500;
+    }
+    .login-divider {
+      text-align: center;
+      margin: var(--space-8) 0;
+      position: relative;
+    }
+    .login-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--color-border);
+    }
+    .login-divider span {
+      position: relative;
+      background: var(--color-bg-alt);
+      padding: 0 var(--space-4);
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+    }
+    .login-bottom {
+      text-align: center;
+      margin-top: var(--space-6);
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--color-border);
+    }
+    .login-bottom p {
+      font-size: var(--text-sm);
+    }
+    .login-bottom a {
+      font-weight: 600;
+    }
+    .login-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--text-xl);
+      margin: 0 auto var(--space-3);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="/index.html" class="navbar__logo">
+        <div class="navbar__logo-icon">EA</div>
+        Excel Academy
+      </a>
+      <div class="navbar__links" id="nav-links">
+        <a href="/index.html" class="navbar__link">Home</a>
+        <a href="/about.html" class="navbar__link">About</a>
+        <a href="/classes.html" class="navbar__link">Classes</a>
+        <a href="/schedule.html" class="navbar__link">Schedule</a>
+        <a href="/results.html" class="navbar__link">Results</a>
+        <a href="/contact.html" class="navbar__link">Contact</a>
+        <a href="/login.html" class="navbar__link">Login</a>
+        <div class="navbar__cta">
+          <a href="/contact.html" class="btn btn--primary btn--sm">Book Demo Class</a>
+        </div>
+      </div>
+      <div class="navbar__hamburger" id="nav-hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="nav-overlay"></div>
+
+  <!-- LOGIN SECTION -->
+  <section class="login-section">
+    <div class="login-card reveal-scale">
+      <div class="login-card__header">
+        <div class="login-card__logo">EA</div>
+        <h1 class="login-card__title">Welcome Back</h1>
+        <p class="login-card__subtitle">Log in to access your dashboard and study materials</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="login-tabs">
+        <button class="login-tab active" data-tab="teacher-login">👨‍🏫 Teacher</button>
+        <button class="login-tab" data-tab="student-login">🎓 Student</button>
+      </div>
+
+      <!-- Teacher Login Form -->
+      <div class="login-form active" id="teacher-login">
+        <div class="login-icon" style="background: var(--color-primary-50);">👨‍🏫</div>
+        <form novalidate>
+          <div class="form-group">
+            <label for="teacher-email">Email or Username</label>
+            <input type="text" id="teacher-email" placeholder="teacher@excelacademy.in" required />
+          </div>
+          <div class="form-group">
+            <label for="teacher-password">Password</label>
+            <input type="password" id="teacher-password" placeholder="Enter your password" required />
+          </div>
+          <button type="submit" class="btn btn--primary btn--lg">Sign In as Teacher</button>
+          <div class="login-forgot">
+            <a href="#">Forgot Password?</a>
+          </div>
+        </form>
+      </div>
+
+      <!-- Student Login Form -->
+      <div class="login-form" id="student-login">
+        <div class="login-icon" style="background: var(--color-accent-50);">🎓</div>
+        <form novalidate>
+          <div class="form-group">
+            <label for="student-id">Student ID or Phone Number</label>
+            <input type="text" id="student-id" placeholder="EA2024001 or +91 98765 43210" required />
+          </div>
+          <div class="form-group">
+            <label for="student-password">Password</label>
+            <input type="password" id="student-password" placeholder="Enter your password" required />
+          </div>
+          <button type="submit" class="btn btn--primary btn--lg">Sign In as Student</button>
+          <div class="login-forgot">
+            <a href="#">Forgot Password?</a>
+          </div>
+        </form>
+      </div>
+
+      <div class="login-bottom">
+        <p>Don't have an account? <a href="/contact.html">Contact us to enrol</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (minimal) -->
+  <footer style="background: var(--color-gray-900); padding: var(--space-6) 0; text-align: center;">
+    <div class="container">
+      <p style="font-size: var(--text-sm); color: var(--color-gray-500);">© 2024 Excel Academy. All rights reserved. <a href="/index.html" style="color: var(--color-gray-400);">Back to Home</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
