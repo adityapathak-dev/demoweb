@@ -15,7 +15,7 @@ function initLoginTabs() {
 
       const target = tab.getAttribute('data-tab');
       forms.forEach(form => {
-        form.style.display = form.id === target ? 'block' : 'none';
+        form.classList.toggle('active', form.id === target);
       });
     });
   });

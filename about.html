@@ -4,103 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About — Excel Academy</title>
-  <meta name="description" content="Meet the teacher behind Excel Academy. 12+ years of experience, M.Sc in Mathematics, and a passion for helping students excel in board and competitive exams." />
+  <meta name="description" content="Learn about Excel Academy, founded by Rajendra Sharma. 12+ years of teaching experience, personalised approach, and a track record of board toppers." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script type="module" src="/src/js/main.js"></script>
-  <style>
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: var(--space-12);
-      align-items: start;
-    }
-    .teacher-photo {
-      width: 100%;
-      aspect-ratio: 3 / 4;
-      background: linear-gradient(135deg, var(--color-primary-100), var(--color-primary-200));
-      border-radius: var(--radius-xl);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: var(--color-primary-600);
-      font-size: var(--text-6xl);
-      position: relative;
-      overflow: hidden;
-    }
-    .teacher-photo::after {
-      content: 'Teacher Photo';
-      font-size: var(--text-sm);
-      font-family: var(--font-body);
-      color: var(--color-primary-400);
-      margin-top: var(--space-2);
-      font-weight: 500;
-    }
-    .teacher-info {
-      padding-top: var(--space-4);
-    }
-    .teacher-info h2 {
-      font-size: var(--text-3xl);
-      margin-bottom: var(--space-2);
-    }
-    .teacher-info .role {
-      font-size: var(--text-lg);
-      color: var(--color-primary-600);
-      font-weight: 600;
-      margin-bottom: var(--space-6);
-    }
-    .teacher-info p {
-      margin-bottom: var(--space-4);
-      line-height: var(--leading-normal);
-    }
-    .qualifications {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-3);
-      margin: var(--space-6) 0;
-    }
-    .qualifications .badge {
-      font-size: var(--text-sm);
-      padding: var(--space-2) var(--space-4);
-    }
-    .philosophy-card {
-      background: linear-gradient(135deg, var(--color-primary-50), var(--color-primary-100));
-      border-radius: var(--radius-lg);
-      padding: var(--space-8);
-      margin-top: var(--space-8);
-      border-left: 4px solid var(--color-primary-500);
-    }
-    .philosophy-card h3 {
-      color: var(--color-primary-700);
-      margin-bottom: var(--space-4);
-    }
-    .philosophy-card p {
-      color: var(--color-primary-800);
-      font-style: italic;
-    }
-    .why-list {
-      margin-top: var(--space-6);
-    }
-    .why-list li {
-      display: flex;
-      gap: var(--space-3);
-      align-items: flex-start;
-      padding: var(--space-3) 0;
-      border-bottom: 1px solid var(--color-border);
-      color: var(--color-gray-700);
-    }
-    .why-list li:last-child {
-      border-bottom: none;
-    }
-    .why-list li span {
-      font-size: var(--text-xl);
-      flex-shrink: 0;
-      line-height: 1.4;
-    }
-  </style>
 </head>
 <body>
 
@@ -108,20 +17,19 @@
   <nav class="navbar" id="navbar">
     <div class="container navbar__inner">
       <a href="/index.html" class="navbar__logo">
-        <div class="navbar__logo-icon">EA</div>
+        <div class="navbar__logo-mark">EA</div>
         Excel Academy
       </a>
-      <div class="navbar__links" id="nav-links">
-        <a href="/index.html" class="navbar__link">Home</a>
-        <a href="/about.html" class="navbar__link">About</a>
-        <a href="/classes.html" class="navbar__link">Classes</a>
-        <a href="/schedule.html" class="navbar__link">Schedule</a>
+      <div class="navbar__center" id="nav-center">
+        <a href="/classes.html" class="navbar__link">Programs</a>
         <a href="/results.html" class="navbar__link">Results</a>
+        <a href="/about.html" class="navbar__link active">Our Approach</a>
+        <a href="/schedule.html" class="navbar__link">Schedule</a>
         <a href="/contact.html" class="navbar__link">Contact</a>
-        <a href="/login.html" class="navbar__link">Login</a>
-        <div class="navbar__cta">
-          <a href="/contact.html" class="btn btn--primary btn--sm">Book Demo Class</a>
-        </div>
+      </div>
+      <div class="navbar__right">
+        <a href="/login.html" class="navbar__login">Student Login</a>
+        <a href="/contact.html" class="btn btn--primary btn--sm">Book a Demo</a>
       </div>
       <div class="navbar__hamburger" id="nav-hamburger">
         <span></span><span></span><span></span>
@@ -129,96 +37,145 @@
     </div>
   </nav>
   <div class="nav-overlay" id="nav-overlay"></div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="/index.html" class="mobile-nav__link">Home</a>
+    <a href="/classes.html" class="mobile-nav__link">Programs</a>
+    <a href="/results.html" class="mobile-nav__link">Results</a>
+    <a href="/about.html" class="mobile-nav__link active">Our Approach</a>
+    <a href="/schedule.html" class="mobile-nav__link">Schedule</a>
+    <a href="/contact.html" class="mobile-nav__link">Contact</a>
+    <a href="/login.html" class="mobile-nav__link">Student Login</a>
+    <div class="mobile-nav__cta">
+      <a href="/contact.html" class="btn btn--primary">Book a Demo</a>
+    </div>
+  </div>
 
   <!-- PAGE HEADER -->
   <section class="page-header">
     <div class="container">
       <div class="page-header__breadcrumb">
         <a href="/index.html">Home</a>
-        <span>/</span>
+        <span class="sep">/</span>
         <span class="current">About</span>
       </div>
-      <h1 class="page-header__title">About the Teacher</h1>
-      <p class="page-header__subtitle">Meet the person behind Excel Academy — dedicated to transforming every student's potential into performance.</p>
+      <h1 class="page-header__title">Our Story</h1>
+      <p class="page-header__subtitle">Excel Academy was founded with a simple belief — every student can excel with the right guidance and individual attention.</p>
     </div>
   </section>
 
-  <!-- TEACHER PROFILE -->
+  <!-- FOUNDER SECTION -->
   <section class="section">
     <div class="container">
       <div class="about-grid">
         <div class="reveal-left">
-          <div class="teacher-photo">👨‍🏫</div>
+          <div class="img-slot img-slot--label" data-label="Rajendra Sharma" style="aspect-ratio: 3/4; max-width: 360px;"></div>
         </div>
-        <div class="teacher-info reveal-right">
+        <div class="reveal-right teacher-info">
           <h2>Rajendra Sharma</h2>
-          <div class="role">Founder & Lead Teacher, Excel Academy</div>
-          <p>With over 12 years of experience teaching Mathematics, Physics, and Chemistry, I founded Excel Academy with a simple belief — every student can score well if they're taught the right way.</p>
-          <p>I've worked with 500+ students across Classes 8 to 12, helping them prepare for CBSE boards, ICSE exams, and competitive tests like JEE and NEET. My focus has always been on building conceptual clarity rather than rote memorisation.</p>
+          <div class="role">Founder & Lead Educator</div>
+          <p>With over 12 years of teaching experience, Rajendra Sharma founded Excel Academy to bridge the gap between classroom teaching and exam preparation. His approach focuses on building conceptual clarity rather than rote memorisation.</p>
+          <p>Having taught thousands of students across Classes 8–12, he understands the specific challenges students face at each level — from building foundations in middle school to navigating the pressure of board exams and competitive entrance tests.</p>
 
           <div class="qualifications">
-            <span class="badge badge--primary">M.Sc. Mathematics</span>
-            <span class="badge badge--primary">B.Ed.</span>
-            <span class="badge badge--accent">12+ Years Experience</span>
-            <span class="badge badge--success">500+ Students</span>
-            <span class="badge badge--primary">CBSE & ICSE Expert</span>
+            <span class="tag">M.Sc. Mathematics</span>
+            <span class="tag">B.Ed.</span>
+            <span class="tag">12+ Years</span>
           </div>
 
           <div class="philosophy-card">
-            <h3>💡 Teaching Philosophy</h3>
-            <p>"I don't believe in making students memorise formulas. I believe in making them understand why a formula works. When a student truly understands a concept, they don't just pass exams — they develop a love for learning that stays with them for life."</p>
+            <h3>Teaching Philosophy</h3>
+            <p>"A student who understands the concept will never forget the formula. My job is to make them understand, not memorise."</p>
           </div>
-
-          <h3 style="margin-top: var(--space-10); margin-bottom: var(--space-2);">Why Students Choose Excel Academy</h3>
-          <ul class="why-list">
-            <li><span>✅</span> <div><strong>Personal attention</strong> — I know every student by name, their strengths, and their weak areas. Teaching is never one-size-fits-all here.</div></li>
-            <li><span>✅</span> <div><strong>Concept-first approach</strong> — We start from basics and build up. No shortcuts to understanding, only shortcuts to solving.</div></li>
-            <li><span>✅</span> <div><strong>Regular parent updates</strong> — I share monthly progress reports and am always available for a quick call to discuss your child's performance.</div></li>
-            <li><span>✅</span> <div><strong>Exam-focused preparation</strong> — Mock tests, previous year papers, and time management training ensure students walk into exams with confidence.</div></li>
-            <li><span>✅</span> <div><strong>Safe, supportive environment</strong> — Students feel comfortable asking questions, making mistakes, and learning at their own pace.</div></li>
-            <li><span>✅</span> <div><strong>Affordable quality education</strong> — Premium teaching doesn't have to come with a premium price tag. I keep fees reasonable and transparent.</div></li>
-          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- EXPERIENCE TIMELINE -->
-  <section class="section section--alt">
+  <!-- WHY CHOOSE US -->
+  <section class="section section--warm">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-header__label">Experience</span>
-        <h2 class="section-header__title">Teaching Journey</h2>
+      <div class="editorial-split">
+        <div class="reveal-left">
+          <span class="section-label">Why Parents Choose Us</span>
+          <h2>Built for serious learning</h2>
+          <ul class="why-list" style="margin-top: var(--space-8);">
+            <li>
+              <span class="why-list__marker"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+              <span>Small batch sizes (max 15 students) for personalised attention and regular doubt-clearing</span>
+            </li>
+            <li>
+              <span class="why-list__marker"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+              <span>Regular parent-teacher communication with monthly progress reports</span>
+            </li>
+            <li>
+              <span class="why-list__marker"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+              <span>Structured study material aligned with CBSE/NCERT syllabus with additional practice sets</span>
+            </li>
+            <li>
+              <span class="why-list__marker"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+              <span>Weekly tests and mock exams in real exam conditions</span>
+            </li>
+            <li>
+              <span class="why-list__marker"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+              <span>Both online and offline classes available with flexible timing</span>
+            </li>
+          </ul>
+        </div>
+        <div class="reveal-right">
+          <div class="img-slot img-slot--label" data-label="Classroom session" style="aspect-ratio: 4/5;"></div>
+        </div>
       </div>
-      <div class="grid-3 stagger-children">
-        <div class="card reveal" style="text-align: center;">
-          <div style="font-size: var(--text-4xl); margin-bottom: var(--space-3);">🎓</div>
-          <h4 class="card__title">2010 – 2013</h4>
-          <p class="card__text">Started as a home tutor for Classes 9–10, helping 15 students prepare for CBSE board exams.</p>
+    </div>
+  </section>
+
+  <!-- ACADEMY TIMELINE -->
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="reveal">
+        <span class="section-label">Academy Journey</span>
+        <h2>Milestones</h2>
+      </div>
+      <div class="reveal" style="margin-top: var(--space-10);">
+        <div class="timeline-item">
+          <div class="timeline-item__year">2012</div>
+          <p class="timeline-item__text">Started with 5 students in a small room. Classes 9–10, Mathematics only.</p>
         </div>
-        <div class="card reveal" style="text-align: center;">
-          <div style="font-size: var(--text-4xl); margin-bottom: var(--space-3);">📚</div>
-          <h4 class="card__title">2013 – 2018</h4>
-          <p class="card__text">Expanded to cover Classes 8–12 with all science subjects. Moved to a dedicated coaching space. First batch of 50+ scorers.</p>
+        <div class="timeline-item">
+          <div class="timeline-item__year">2015</div>
+          <p class="timeline-item__text">Expanded to cover Science and English. Moved to a dedicated classroom space.</p>
         </div>
-        <div class="card reveal" style="text-align: center;">
-          <div style="font-size: var(--text-4xl); margin-bottom: var(--space-3);">🏆</div>
-          <h4 class="card__title">2018 – Present</h4>
-          <p class="card__text">Excel Academy established formally. 500+ students taught. Online batches launched. Consistently producing board toppers.</p>
+        <div class="timeline-item">
+          <div class="timeline-item__year">2018</div>
+          <p class="timeline-item__text">First batch of Class 12 students. 3 school toppers in CBSE Board Exams.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item__year">2020</div>
+          <p class="timeline-item__text">Introduced online classes during the pandemic. Maintained 95% retention rate.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item__year">2022</div>
+          <p class="timeline-item__text">Crossed 500+ students milestone. Added JEE and NEET foundation courses.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item__year">Present</div>
+          <p class="timeline-item__text">Serving students across Classes 8–12. 50+ board toppers and counting.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="section section--dark" style="padding: var(--space-20) 0;">
+  <section class="section section--ink">
     <div class="container" style="text-align: center;">
       <div class="reveal">
-        <h2 style="color: white; margin-bottom: var(--space-4);">Want to See the Teaching Style?</h2>
-        <p style="color: var(--color-gray-300); font-size: var(--text-lg); max-width: 480px; margin: 0 auto var(--space-8);">
-          Book a free demo class. No fees, no pressure — just experience the difference.
+        <h2 style="color: var(--white); margin-bottom: var(--space-4);">Start With a Free Demo Class</h2>
+        <p style="color: var(--slate-light); font-size: var(--text-lg); max-width: 480px; margin: 0 auto var(--space-8);">
+          Experience our teaching approach firsthand. No commitment required.
         </p>
-        <a href="/contact.html" class="btn btn--accent btn--lg">Book a Free Demo Class</a>
+        <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+          <a href="/contact.html" class="btn btn--primary btn--lg">Book a Demo</a>
+          <a href="https://wa.me/919876543210" class="btn btn--whatsapp btn--lg" target="_blank" rel="noopener">WhatsApp Us</a>
+        </div>
       </div>
     </div>
   </section>
@@ -232,20 +189,28 @@
           <p class="footer__brand-desc">Personalised coaching for Classes 8–12. Building strong foundations, one student at a time.</p>
         </div>
         <div>
-          <h4 class="footer__heading">Quick Links</h4>
+          <h4 class="footer__heading">Programs</h4>
           <div class="footer__links">
-            <a href="/index.html">Home</a>
-            <a href="/about.html">About</a>
-            <a href="/classes.html">Classes</a>
-            <a href="/schedule.html">Schedule</a>
+            <a href="/classes.html">Classes 8–10</a>
+            <a href="/classes.html">Classes 11–12</a>
+            <a href="/classes.html">JEE Foundation</a>
+            <a href="/classes.html">NEET Preparation</a>
           </div>
         </div>
         <div>
-          <h4 class="footer__heading">Resources</h4>
+          <h4 class="footer__heading">Academy</h4>
           <div class="footer__links">
+            <a href="/about.html">About</a>
             <a href="/results.html">Results</a>
+            <a href="/schedule.html">Schedule</a>
             <a href="/contact.html">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Students</h4>
+          <div class="footer__links">
             <a href="/login.html">Student Login</a>
+            <a href="/schedule.html">Class Schedule</a>
             <a href="/login.html">Teacher Login</a>
           </div>
         </div>
@@ -255,15 +220,16 @@
             <a href="tel:+919876543210">+91 98765 43210</a>
             <a href="mailto:info@excelacademy.in">info@excelacademy.in</a>
             <a href="https://wa.me/919876543210" target="_blank" rel="noopener">WhatsApp</a>
+            <span style="color: var(--slate);">42 Knowledge Lane, New Delhi</span>
           </div>
         </div>
       </div>
       <div class="footer__bottom">
-        <p>© 2024 Excel Academy. All rights reserved.</p>
+        <p>&copy; 2024 Excel Academy. All rights reserved.</p>
         <div class="footer__social">
-          <a href="#" aria-label="Facebook">📘</a>
-          <a href="#" aria-label="Instagram">📸</a>
-          <a href="#" aria-label="YouTube">▶️</a>
+          <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
         </div>
       </div>
     </div>

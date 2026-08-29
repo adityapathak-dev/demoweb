@@ -7,114 +7,10 @@
   <meta name="description" content="Get in touch with Excel Academy. Enquire about classes, book a demo, or reach us via phone, WhatsApp, or email." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script type="module" src="/src/js/main.js"></script>
   <script type="module" src="/src/js/contact.js"></script>
-  <style>
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: var(--space-12);
-      align-items: start;
-    }
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-6);
-    }
-    .contact-item {
-      display: flex;
-      gap: var(--space-4);
-      align-items: flex-start;
-      padding: var(--space-5);
-      background: var(--color-bg-alt);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--color-border);
-      transition: transform var(--transition-base), box-shadow var(--transition-base);
-    }
-    .contact-item:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-    .contact-item__icon {
-      width: 48px;
-      height: 48px;
-      background: var(--color-primary-50);
-      border-radius: var(--radius-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: var(--text-xl);
-      flex-shrink: 0;
-    }
-    .contact-item__label {
-      font-size: var(--text-xs);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--color-text-secondary);
-      margin-bottom: var(--space-1);
-      font-weight: 600;
-    }
-    .contact-item__value {
-      font-weight: 600;
-      color: var(--color-gray-900);
-      font-size: var(--text-base);
-    }
-    .contact-item__value a {
-      color: var(--color-primary-600);
-    }
-    .contact-form-card {
-      background: var(--color-bg-alt);
-      border-radius: var(--radius-xl);
-      padding: var(--space-10);
-      border: 1px solid var(--color-border);
-      box-shadow: var(--shadow-lg);
-    }
-    .contact-form-card h3 {
-      margin-bottom: var(--space-2);
-    }
-    .contact-form-card > p {
-      color: var(--color-text-secondary);
-      font-size: var(--text-sm);
-      margin-bottom: var(--space-8);
-    }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-5);
-    }
-    .map-placeholder {
-      width: 100%;
-      height: 200px;
-      background: linear-gradient(135deg, var(--color-gray-100), var(--color-gray-200));
-      border-radius: var(--radius-lg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--color-gray-400);
-      font-size: var(--text-sm);
-      margin-top: var(--space-6);
-      border: 1px solid var(--color-border);
-    }
-    .quick-actions {
-      display: flex;
-      gap: var(--space-3);
-      margin-top: var(--space-6);
-      flex-wrap: wrap;
-    }
-    @media (max-width: 768px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-      .form-row {
-        grid-template-columns: 1fr;
-      }
-      .contact-form-card {
-        padding: var(--space-6);
-      }
-    }
-  </style>
 </head>
 <body>
 
@@ -122,20 +18,19 @@
   <nav class="navbar" id="navbar">
     <div class="container navbar__inner">
       <a href="/index.html" class="navbar__logo">
-        <div class="navbar__logo-icon">EA</div>
+        <div class="navbar__logo-mark">EA</div>
         Excel Academy
       </a>
-      <div class="navbar__links" id="nav-links">
-        <a href="/index.html" class="navbar__link">Home</a>
-        <a href="/about.html" class="navbar__link">About</a>
-        <a href="/classes.html" class="navbar__link">Classes</a>
-        <a href="/schedule.html" class="navbar__link">Schedule</a>
+      <div class="navbar__center" id="nav-center">
+        <a href="/classes.html" class="navbar__link">Programs</a>
         <a href="/results.html" class="navbar__link">Results</a>
-        <a href="/contact.html" class="navbar__link">Contact</a>
-        <a href="/login.html" class="navbar__link">Login</a>
-        <div class="navbar__cta">
-          <a href="/contact.html" class="btn btn--primary btn--sm">Book Demo Class</a>
-        </div>
+        <a href="/about.html" class="navbar__link">Our Approach</a>
+        <a href="/schedule.html" class="navbar__link">Schedule</a>
+        <a href="/contact.html" class="navbar__link active">Contact</a>
+      </div>
+      <div class="navbar__right">
+        <a href="/login.html" class="navbar__login">Student Login</a>
+        <a href="/contact.html" class="btn btn--primary btn--sm">Book a Demo</a>
       </div>
       <div class="navbar__hamburger" id="nav-hamburger">
         <span></span><span></span><span></span>
@@ -143,13 +38,25 @@
     </div>
   </nav>
   <div class="nav-overlay" id="nav-overlay"></div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="/index.html" class="mobile-nav__link">Home</a>
+    <a href="/classes.html" class="mobile-nav__link">Programs</a>
+    <a href="/results.html" class="mobile-nav__link">Results</a>
+    <a href="/about.html" class="mobile-nav__link">Our Approach</a>
+    <a href="/schedule.html" class="mobile-nav__link">Schedule</a>
+    <a href="/contact.html" class="mobile-nav__link active">Contact</a>
+    <a href="/login.html" class="mobile-nav__link">Student Login</a>
+    <div class="mobile-nav__cta">
+      <a href="/contact.html" class="btn btn--primary">Book a Demo</a>
+    </div>
+  </div>
 
   <!-- PAGE HEADER -->
   <section class="page-header">
     <div class="container">
       <div class="page-header__breadcrumb">
         <a href="/index.html">Home</a>
-        <span>/</span>
+        <span class="sep">/</span>
         <span class="current">Contact</span>
       </div>
       <h1 class="page-header__title">Get in Touch</h1>
@@ -167,7 +74,9 @@
 
           <div class="contact-info">
             <div class="contact-item">
-              <div class="contact-item__icon">📞</div>
+              <div class="contact-item__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
               <div>
                 <div class="contact-item__label">Phone</div>
                 <div class="contact-item__value"><a href="tel:+919876543210">+91 98765 43210</a></div>
@@ -175,7 +84,9 @@
             </div>
 
             <div class="contact-item">
-              <div class="contact-item__icon">💬</div>
+              <div class="contact-item__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              </div>
               <div>
                 <div class="contact-item__label">WhatsApp</div>
                 <div class="contact-item__value"><a href="https://wa.me/919876543210" target="_blank" rel="noopener">Chat on WhatsApp</a></div>
@@ -183,7 +94,9 @@
             </div>
 
             <div class="contact-item">
-              <div class="contact-item__icon">📧</div>
+              <div class="contact-item__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
               <div>
                 <div class="contact-item__label">Email</div>
                 <div class="contact-item__value"><a href="mailto:info@excelacademy.in">info@excelacademy.in</a></div>
@@ -191,7 +104,9 @@
             </div>
 
             <div class="contact-item">
-              <div class="contact-item__icon">📍</div>
+              <div class="contact-item__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
               <div>
                 <div class="contact-item__label">Location</div>
                 <div class="contact-item__value">42, Knowledge Lane, Near City Park<br/>New Delhi — 110001</div>
@@ -199,7 +114,9 @@
             </div>
 
             <div class="contact-item">
-              <div class="contact-item__icon">🕐</div>
+              <div class="contact-item__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
               <div>
                 <div class="contact-item__label">Working Hours</div>
                 <div class="contact-item__value">Mon – Sat: 8:00 AM – 8:00 PM<br/>Sunday: Closed</div>
@@ -208,12 +125,12 @@
           </div>
 
           <div class="quick-actions">
-            <a href="https://wa.me/919876543210?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20tuition%20classes" class="btn btn--whatsapp btn--sm" target="_blank" rel="noopener">💬 WhatsApp Us</a>
-            <a href="tel:+919876543210" class="btn btn--ghost btn--sm">📞 Call Now</a>
+            <a href="https://wa.me/919876543210?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20tuition%20classes" class="btn btn--whatsapp btn--sm" target="_blank" rel="noopener">WhatsApp Us</a>
+            <a href="tel:+919876543210" class="btn btn--secondary btn--sm">Call Now</a>
           </div>
 
           <div class="map-placeholder">
-            📍 Google Maps embed will go here
+            Google Maps embed will go here
           </div>
         </div>
 
@@ -267,16 +184,14 @@
                 </div>
                 <div style="display: flex; gap: var(--space-3); flex-wrap: wrap;">
                   <button type="submit" class="btn btn--primary btn--lg" style="flex: 1;">Send Enquiry</button>
-                  <a href="/contact.html" class="btn btn--accent btn--lg" style="flex: 1; text-align: center;">📅 Book Demo Class</a>
                 </div>
               </form>
             </div>
 
             <div class="form-success" id="form-success">
-              <div class="form-success__icon">✅</div>
               <h3 class="form-success__title">Enquiry Sent!</h3>
-              <p style="color: var(--color-text-secondary); margin-bottom: var(--space-6);">Thank you for reaching out. We'll get back to you within 24 hours. You can also reach us directly on WhatsApp for a faster response.</p>
-              <a href="https://wa.me/919876543210" class="btn btn--whatsapp" target="_blank" rel="noopener">💬 Chat on WhatsApp</a>
+              <p style="color: var(--slate); margin-bottom: var(--space-6);">Thank you for reaching out. We'll get back to you within 24 hours. You can also reach us directly on WhatsApp for a faster response.</p>
+              <a href="https://wa.me/919876543210" class="btn btn--whatsapp" target="_blank" rel="noopener">Chat on WhatsApp</a>
             </div>
           </div>
         </div>
@@ -293,20 +208,28 @@
           <p class="footer__brand-desc">Personalised coaching for Classes 8–12. Building strong foundations, one student at a time.</p>
         </div>
         <div>
-          <h4 class="footer__heading">Quick Links</h4>
+          <h4 class="footer__heading">Programs</h4>
           <div class="footer__links">
-            <a href="/index.html">Home</a>
-            <a href="/about.html">About</a>
-            <a href="/classes.html">Classes</a>
-            <a href="/schedule.html">Schedule</a>
+            <a href="/classes.html">Classes 8–10</a>
+            <a href="/classes.html">Classes 11–12</a>
+            <a href="/classes.html">JEE Foundation</a>
+            <a href="/classes.html">NEET Preparation</a>
           </div>
         </div>
         <div>
-          <h4 class="footer__heading">Resources</h4>
+          <h4 class="footer__heading">Academy</h4>
           <div class="footer__links">
+            <a href="/about.html">About</a>
             <a href="/results.html">Results</a>
+            <a href="/schedule.html">Schedule</a>
             <a href="/contact.html">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Students</h4>
+          <div class="footer__links">
             <a href="/login.html">Student Login</a>
+            <a href="/schedule.html">Class Schedule</a>
             <a href="/login.html">Teacher Login</a>
           </div>
         </div>
@@ -316,15 +239,16 @@
             <a href="tel:+919876543210">+91 98765 43210</a>
             <a href="mailto:info@excelacademy.in">info@excelacademy.in</a>
             <a href="https://wa.me/919876543210" target="_blank" rel="noopener">WhatsApp</a>
+            <span style="color: var(--slate);">42 Knowledge Lane, New Delhi</span>
           </div>
         </div>
       </div>
       <div class="footer__bottom">
-        <p>© 2024 Excel Academy. All rights reserved.</p>
+        <p>&copy; 2024 Excel Academy. All rights reserved.</p>
         <div class="footer__social">
-          <a href="#" aria-label="Facebook">📘</a>
-          <a href="#" aria-label="Instagram">📸</a>
-          <a href="#" aria-label="YouTube">▶️</a>
+          <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
         </div>
       </div>
     </div>

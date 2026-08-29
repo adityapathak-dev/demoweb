@@ -7,156 +7,9 @@
   <meta name="description" content="See the proven results of Excel Academy students. Board toppers, percentage improvements, and year-wise exam performance." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script type="module" src="/src/js/main.js"></script>
-  <style>
-    .results-stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-6);
-      margin-bottom: var(--space-16);
-    }
-    .result-stat {
-      background: var(--color-bg-alt);
-      border-radius: var(--radius-lg);
-      padding: var(--space-8) var(--space-6);
-      text-align: center;
-      border: 1px solid var(--color-border);
-    }
-    .result-stat__number {
-      font-family: var(--font-heading);
-      font-size: var(--text-4xl);
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--color-primary-600), var(--color-accent-500));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .result-stat__label {
-      font-size: var(--text-sm);
-      color: var(--color-text-secondary);
-      margin-top: var(--space-2);
-    }
-    .year-section {
-      margin-bottom: var(--space-12);
-    }
-    .year-section__header {
-      display: flex;
-      align-items: center;
-      gap: var(--space-4);
-      margin-bottom: var(--space-8);
-    }
-    .year-section__badge {
-      padding: var(--space-2) var(--space-5);
-      background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-500));
-      color: white;
-      border-radius: var(--radius-full);
-      font-family: var(--font-heading);
-      font-size: var(--text-lg);
-      font-weight: 700;
-    }
-    .year-section__title {
-      font-size: var(--text-xl);
-      color: var(--color-gray-900);
-    }
-    .scorer-card {
-      background: var(--color-bg-alt);
-      border-radius: var(--radius-lg);
-      padding: var(--space-6);
-      border: 1px solid var(--color-border);
-      text-align: center;
-      transition: transform var(--transition-base), box-shadow var(--transition-base);
-    }
-    .scorer-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-xl);
-    }
-    .scorer-card__avatar {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      margin: 0 auto var(--space-4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      color: white;
-      font-size: var(--text-lg);
-    }
-    .scorer-card__name {
-      font-weight: 700;
-      font-size: var(--text-base);
-      color: var(--color-gray-900);
-      margin-bottom: var(--space-1);
-    }
-    .scorer-card__class {
-      font-size: var(--text-xs);
-      color: var(--color-text-secondary);
-      margin-bottom: var(--space-4);
-    }
-    .scorer-card__score {
-      font-family: var(--font-heading);
-      font-size: var(--text-3xl);
-      font-weight: 800;
-      color: var(--color-primary-600);
-      margin-bottom: var(--space-2);
-    }
-    .scorer-card__subject {
-      font-size: var(--text-xs);
-      color: var(--color-text-secondary);
-    }
-    .improvement-card {
-      background: var(--color-bg-alt);
-      border-radius: var(--radius-lg);
-      padding: var(--space-6);
-      border: 1px solid var(--color-border);
-    }
-    .improvement-card__header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: var(--space-4);
-    }
-    .improvement-card__name {
-      font-weight: 600;
-      color: var(--color-gray-900);
-    }
-    .improvement-card__change {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      color: var(--color-success-600);
-      font-size: var(--text-sm);
-    }
-    .improvement-card__bar {
-      margin-bottom: var(--space-3);
-    }
-    .improvement-card__labels {
-      display: flex;
-      justify-content: space-between;
-      font-size: var(--text-xs);
-      color: var(--color-text-secondary);
-    }
-    .scorers-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-6);
-    }
-    .improvements-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-6);
-    }
-    @media (max-width: 1024px) {
-      .results-stats { grid-template-columns: repeat(2, 1fr); }
-      .scorers-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 768px) {
-      .results-stats { grid-template-columns: 1fr 1fr; }
-      .scorers-grid { grid-template-columns: 1fr; }
-      .improvements-grid { grid-template-columns: 1fr; }
-    }
-  </style>
 </head>
 <body>
 
@@ -164,20 +17,19 @@
   <nav class="navbar" id="navbar">
     <div class="container navbar__inner">
       <a href="/index.html" class="navbar__logo">
-        <div class="navbar__logo-icon">EA</div>
+        <div class="navbar__logo-mark">EA</div>
         Excel Academy
       </a>
-      <div class="navbar__links" id="nav-links">
-        <a href="/index.html" class="navbar__link">Home</a>
-        <a href="/about.html" class="navbar__link">About</a>
-        <a href="/classes.html" class="navbar__link">Classes</a>
+      <div class="navbar__center" id="nav-center">
+        <a href="/classes.html" class="navbar__link">Programs</a>
+        <a href="/results.html" class="navbar__link active">Results</a>
+        <a href="/about.html" class="navbar__link">Our Approach</a>
         <a href="/schedule.html" class="navbar__link">Schedule</a>
-        <a href="/results.html" class="navbar__link">Results</a>
         <a href="/contact.html" class="navbar__link">Contact</a>
-        <a href="/login.html" class="navbar__link">Login</a>
-        <div class="navbar__cta">
-          <a href="/contact.html" class="btn btn--primary btn--sm">Book Demo Class</a>
-        </div>
+      </div>
+      <div class="navbar__right">
+        <a href="/login.html" class="navbar__login">Student Login</a>
+        <a href="/contact.html" class="btn btn--primary btn--sm">Book a Demo</a>
       </div>
       <div class="navbar__hamburger" id="nav-hamburger">
         <span></span><span></span><span></span>
@@ -185,13 +37,25 @@
     </div>
   </nav>
   <div class="nav-overlay" id="nav-overlay"></div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="/index.html" class="mobile-nav__link">Home</a>
+    <a href="/classes.html" class="mobile-nav__link">Programs</a>
+    <a href="/results.html" class="mobile-nav__link active">Results</a>
+    <a href="/about.html" class="mobile-nav__link">Our Approach</a>
+    <a href="/schedule.html" class="mobile-nav__link">Schedule</a>
+    <a href="/contact.html" class="mobile-nav__link">Contact</a>
+    <a href="/login.html" class="mobile-nav__link">Student Login</a>
+    <div class="mobile-nav__cta">
+      <a href="/contact.html" class="btn btn--primary">Book a Demo</a>
+    </div>
+  </div>
 
   <!-- PAGE HEADER -->
   <section class="page-header">
     <div class="container">
       <div class="page-header__breadcrumb">
         <a href="/index.html">Home</a>
-        <span>/</span>
+        <span class="sep">/</span>
         <span class="current">Results</span>
       </div>
       <h1 class="page-header__title">Results & Achievements</h1>
@@ -204,20 +68,20 @@
     <div class="container">
       <div class="results-stats stagger-children">
         <div class="result-stat reveal">
-          <div class="result-stat__number" data-count="95">0</div>
-          <div class="result-stat__label">% Overall Pass Rate</div>
+          <div class="result-stat__number">95%</div>
+          <div class="result-stat__label">Overall Pass Rate</div>
         </div>
         <div class="result-stat reveal">
-          <div class="result-stat__number" data-count="50">0</div>
+          <div class="result-stat__number">50+</div>
           <div class="result-stat__label">School / District Toppers</div>
         </div>
         <div class="result-stat reveal">
-          <div class="result-stat__number" data-count="85">0</div>
-          <div class="result-stat__label">% Students Score 80+</div>
+          <div class="result-stat__number">85%</div>
+          <div class="result-stat__label">Students Score 80+</div>
         </div>
         <div class="result-stat reveal">
-          <div class="result-stat__number" data-count="30">0</div>
-          <div class="result-stat__label">% Average Improvement</div>
+          <div class="result-stat__number">30%</div>
+          <div class="result-stat__label">Average Improvement</div>
         </div>
       </div>
 
@@ -229,36 +93,36 @@
         </div>
         <div class="scorers-grid stagger-children">
           <div class="scorer-card reveal">
-            <div class="scorer-card__avatar" style="background: linear-gradient(135deg, var(--color-accent-400), var(--color-accent-600));">PS</div>
+            <div class="scorer-card__avatar">PS</div>
             <div class="scorer-card__name">Priya S.</div>
             <div class="scorer-card__class">Class 12 — Science</div>
             <div class="scorer-card__score">98.2%</div>
             <div class="scorer-card__subject">School Topper</div>
-            <span class="badge badge--success" style="margin-top: var(--space-3);">🏆 Gold</span>
+            <div class="scorer-card__tag">Gold</div>
           </div>
           <div class="scorer-card reveal">
-            <div class="scorer-card__avatar" style="background: linear-gradient(135deg, var(--color-primary-400), var(--color-primary-600));">AM</div>
+            <div class="scorer-card__avatar">AM</div>
             <div class="scorer-card__name">Arjun M.</div>
             <div class="scorer-card__class">Class 10</div>
             <div class="scorer-card__score">96.4%</div>
             <div class="scorer-card__subject">District Rank 5</div>
-            <span class="badge badge--primary" style="margin-top: var(--space-3);">🥈 Silver</span>
+            <div class="scorer-card__tag">Silver</div>
           </div>
           <div class="scorer-card reveal">
-            <div class="scorer-card__avatar" style="background: linear-gradient(135deg, var(--color-success-400), var(--color-success-600));">SR</div>
+            <div class="scorer-card__avatar">SR</div>
             <div class="scorer-card__name">Sneha R.</div>
             <div class="scorer-card__class">Class 12 — Science</div>
             <div class="scorer-card__score">94.8%</div>
             <div class="scorer-card__subject">Science Topper</div>
-            <span class="badge badge--accent" style="margin-top: var(--space-3);">🥉 Bronze</span>
+            <div class="scorer-card__tag">Bronze</div>
           </div>
           <div class="scorer-card reveal">
-            <div class="scorer-card__avatar" style="background: linear-gradient(135deg, #F472B6, #EC4899);">RK</div>
+            <div class="scorer-card__avatar">RK</div>
             <div class="scorer-card__name">Rohit K.</div>
             <div class="scorer-card__class">Class 10</div>
             <div class="scorer-card__score">97.0%</div>
             <div class="scorer-card__subject">Maths: 100/100</div>
-            <span class="badge badge--success" style="margin-top: var(--space-3);">💯 Perfect Score</span>
+            <div class="scorer-card__tag">Perfect Score</div>
           </div>
         </div>
       </div>
@@ -271,28 +135,28 @@
         </div>
         <div class="scorers-grid stagger-children">
           <div class="scorer-card reveal">
-            <div class="scorer-card__avatar" style="background: linear-gradient(135deg, #8B5CF6, #7C3AED);">NV</div>
+            <div class="scorer-card__avatar">NV</div>
             <div class="scorer-card__name">Neha V.</div>
             <div class="scorer-card__class">Class 12 — Science</div>
             <div class="scorer-card__score">96.6%</div>
             <div class="scorer-card__subject">School Topper</div>
           </div>
           <div class="scorer-card reveal">
-            <div class="scorer-card__avatar" style="background: linear-gradient(135deg, #06B6D4, #0891B2);">KS</div>
+            <div class="scorer-card__avatar">KS</div>
             <div class="scorer-card__name">Karan S.</div>
             <div class="scorer-card__class">Class 10</div>
             <div class="scorer-card__score">95.2%</div>
             <div class="scorer-card__subject">City Rank 12</div>
           </div>
           <div class="scorer-card reveal">
-            <div class="scorer-card__avatar" style="background: linear-gradient(135deg, #F59E0B, #D97706);">AP</div>
+            <div class="scorer-card__avatar">AP</div>
             <div class="scorer-card__name">Ananya P.</div>
             <div class="scorer-card__class">Class 12 — Science</div>
             <div class="scorer-card__score">93.4%</div>
             <div class="scorer-card__subject">Physics: 98/100</div>
           </div>
           <div class="scorer-card reveal">
-            <div class="scorer-card__avatar" style="background: linear-gradient(135deg, #10B981, #059669);">VT</div>
+            <div class="scorer-card__avatar">VT</div>
             <div class="scorer-card__name">Vikram T.</div>
             <div class="scorer-card__class">Class 10</div>
             <div class="scorer-card__score">94.0%</div>
@@ -304,19 +168,17 @@
   </section>
 
   <!-- IMPROVEMENTS -->
-  <section class="section section--alt">
+  <section class="section section--warm">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-header__label">Growth Stories</span>
-        <h2 class="section-header__title">Percentage Improvements</h2>
-        <p class="section-header__subtitle">Real transformations from struggling to excelling — the proof of our teaching method.</p>
+      <div class="reveal" style="margin-bottom: var(--space-10);">
+        <span class="section-label">Growth Stories</span>
+        <h2>Percentage Improvements</h2>
+        <p style="max-width: 520px; margin-top: var(--space-3);">Real transformations from struggling to excelling — the proof of our teaching method.</p>
       </div>
       <div class="improvements-grid stagger-children">
         <div class="improvement-card reveal">
           <div class="improvement-card__header">
-            <div>
-              <div class="improvement-card__name">Aditya G. — Class 10, Maths</div>
-            </div>
+            <div class="improvement-card__name">Aditya G. — Class 10, Maths</div>
             <div class="improvement-card__change">+32%</div>
           </div>
           <div class="improvement-card__bar">
@@ -331,9 +193,7 @@
         </div>
         <div class="improvement-card reveal">
           <div class="improvement-card__header">
-            <div>
-              <div class="improvement-card__name">Meera J. — Class 12, Chemistry</div>
-            </div>
+            <div class="improvement-card__name">Meera J. — Class 12, Chemistry</div>
             <div class="improvement-card__change">+28%</div>
           </div>
           <div class="improvement-card__bar">
@@ -348,9 +208,7 @@
         </div>
         <div class="improvement-card reveal">
           <div class="improvement-card__header">
-            <div>
-              <div class="improvement-card__name">Sahil D. — Class 10, Science</div>
-            </div>
+            <div class="improvement-card__name">Sahil D. — Class 10, Science</div>
             <div class="improvement-card__change">+35%</div>
           </div>
           <div class="improvement-card__bar">
@@ -365,9 +223,7 @@
         </div>
         <div class="improvement-card reveal">
           <div class="improvement-card__header">
-            <div>
-              <div class="improvement-card__name">Riya P. — Class 12, Physics</div>
-            </div>
+            <div class="improvement-card__name">Riya P. — Class 12, Physics</div>
             <div class="improvement-card__change">+25%</div>
           </div>
           <div class="improvement-card__bar">
@@ -385,14 +241,14 @@
   </section>
 
   <!-- CTA -->
-  <section class="section section--dark" style="padding: var(--space-20) 0;">
+  <section class="section section--ink">
     <div class="container" style="text-align: center;">
       <div class="reveal">
-        <h2 style="color: white; margin-bottom: var(--space-4);">Your Child Could Be Next</h2>
-        <p style="color: var(--color-gray-300); font-size: var(--text-lg); max-width: 500px; margin: 0 auto var(--space-8);">
+        <h2 style="color: var(--white); margin-bottom: var(--space-4);">Your Child Could Be Next</h2>
+        <p style="color: var(--slate-light); font-size: var(--text-lg); max-width: 500px; margin: 0 auto var(--space-8);">
           Join the academy that produces toppers year after year. Start with a free demo class today.
         </p>
-        <a href="/contact.html" class="btn btn--accent btn--lg">Book a Free Demo Class</a>
+        <a href="/contact.html" class="btn btn--primary btn--lg">Book a Free Demo Class</a>
       </div>
     </div>
   </section>
@@ -406,20 +262,28 @@
           <p class="footer__brand-desc">Personalised coaching for Classes 8–12. Building strong foundations, one student at a time.</p>
         </div>
         <div>
-          <h4 class="footer__heading">Quick Links</h4>
+          <h4 class="footer__heading">Programs</h4>
           <div class="footer__links">
-            <a href="/index.html">Home</a>
-            <a href="/about.html">About</a>
-            <a href="/classes.html">Classes</a>
-            <a href="/schedule.html">Schedule</a>
+            <a href="/classes.html">Classes 8–10</a>
+            <a href="/classes.html">Classes 11–12</a>
+            <a href="/classes.html">JEE Foundation</a>
+            <a href="/classes.html">NEET Preparation</a>
           </div>
         </div>
         <div>
-          <h4 class="footer__heading">Resources</h4>
+          <h4 class="footer__heading">Academy</h4>
           <div class="footer__links">
+            <a href="/about.html">About</a>
             <a href="/results.html">Results</a>
+            <a href="/schedule.html">Schedule</a>
             <a href="/contact.html">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Students</h4>
+          <div class="footer__links">
             <a href="/login.html">Student Login</a>
+            <a href="/schedule.html">Class Schedule</a>
             <a href="/login.html">Teacher Login</a>
           </div>
         </div>
@@ -429,15 +293,16 @@
             <a href="tel:+919876543210">+91 98765 43210</a>
             <a href="mailto:info@excelacademy.in">info@excelacademy.in</a>
             <a href="https://wa.me/919876543210" target="_blank" rel="noopener">WhatsApp</a>
+            <span style="color: var(--slate);">42 Knowledge Lane, New Delhi</span>
           </div>
         </div>
       </div>
       <div class="footer__bottom">
-        <p>© 2024 Excel Academy. All rights reserved.</p>
+        <p>&copy; 2024 Excel Academy. All rights reserved.</p>
         <div class="footer__social">
-          <a href="#" aria-label="Facebook">📘</a>
-          <a href="#" aria-label="Instagram">📸</a>
-          <a href="#" aria-label="YouTube">▶️</a>
+          <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
         </div>
       </div>
     </div>

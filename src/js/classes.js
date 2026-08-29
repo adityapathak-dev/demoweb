@@ -20,7 +20,13 @@ function initClassFilter() {
         const grade = card.getAttribute('data-grade');
         if (filter === 'all' || grade === filter) {
           card.style.display = '';
-          card.style.animation = 'fadeUp 0.5s ease forwards';
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(8px)';
+          requestAnimationFrame(() => {
+            card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          });
         } else {
           card.style.display = 'none';
         }

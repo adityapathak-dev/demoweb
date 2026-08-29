@@ -3,131 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Classes & Subjects — Excel Academy</title>
-  <meta name="description" content="Explore available classes at Excel Academy. Coaching for Classes 8–12 in Mathematics, Physics, Chemistry, Biology, English, and Computer Science." />
+  <title>Programs — Excel Academy</title>
+  <meta name="description" content="Explore tuition programs at Excel Academy for Classes 8 to 12. Subject-wise coaching in Mathematics, Science, Physics, Chemistry, Biology, English, and Computer Science." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script type="module" src="/src/js/main.js"></script>
   <script type="module" src="/src/js/classes.js"></script>
-  <style>
-    .filter-tabs {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: var(--space-3);
-      margin-bottom: var(--space-10);
-    }
-    .filter-tab {
-      padding: var(--space-2) var(--space-6);
-      font-size: var(--text-sm);
-      font-weight: 600;
-      color: var(--color-gray-500);
-      background: var(--color-bg-alt);
-      border: 1.5px solid var(--color-border);
-      border-radius: var(--radius-full);
-      cursor: pointer;
-      transition: all var(--transition-base);
-    }
-    .filter-tab:hover {
-      border-color: var(--color-primary-300);
-      color: var(--color-primary-600);
-    }
-    .filter-tab.active {
-      background: var(--color-primary-600);
-      color: white;
-      border-color: var(--color-primary-600);
-    }
-    .class-card {
-      background: var(--color-bg-alt);
-      border-radius: var(--radius-lg);
-      padding: var(--space-8);
-      border: 1px solid var(--color-border);
-      transition: transform var(--transition-base), box-shadow var(--transition-base);
-      display: flex;
-      flex-direction: column;
-    }
-    .class-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-xl);
-    }
-    .class-card__header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: var(--space-4);
-    }
-    .class-card__grade {
-      font-family: var(--font-heading);
-      font-size: var(--text-2xl);
-      font-weight: 800;
-      color: var(--color-gray-900);
-    }
-    .class-card__badges {
-      display: flex;
-      gap: var(--space-2);
-      flex-wrap: wrap;
-    }
-    .class-card__description {
-      font-size: var(--text-sm);
-      color: var(--color-text-secondary);
-      margin-bottom: var(--space-5);
-      line-height: var(--leading-normal);
-    }
-    .class-card__subjects {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-2);
-      margin-bottom: var(--space-5);
-    }
-    .class-card__subject {
-      padding: var(--space-1) var(--space-3);
-      background: var(--color-primary-50);
-      color: var(--color-primary-700);
-      border-radius: var(--radius-full);
-      font-size: var(--text-xs);
-      font-weight: 600;
-    }
-    .class-card__details {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-3);
-      margin-bottom: var(--space-6);
-      padding: var(--space-4);
-      background: var(--color-gray-50);
-      border-radius: var(--radius-md);
-    }
-    .class-card__detail {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-      font-size: var(--text-sm);
-      color: var(--color-gray-600);
-    }
-    .class-card__detail span:first-child {
-      font-size: var(--text-base);
-      flex-shrink: 0;
-    }
-    .class-card__footer {
-      margin-top: auto;
-    }
-    .class-card__footer .btn {
-      width: 100%;
-      justify-content: center;
-    }
-    .classes-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-8);
-    }
-    @media (max-width: 1024px) {
-      .classes-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 768px) {
-      .classes-grid { grid-template-columns: 1fr; }
-    }
-  </style>
 </head>
 <body>
 
@@ -135,20 +18,19 @@
   <nav class="navbar" id="navbar">
     <div class="container navbar__inner">
       <a href="/index.html" class="navbar__logo">
-        <div class="navbar__logo-icon">EA</div>
+        <div class="navbar__logo-mark">EA</div>
         Excel Academy
       </a>
-      <div class="navbar__links" id="nav-links">
-        <a href="/index.html" class="navbar__link">Home</a>
-        <a href="/about.html" class="navbar__link">About</a>
-        <a href="/classes.html" class="navbar__link">Classes</a>
-        <a href="/schedule.html" class="navbar__link">Schedule</a>
+      <div class="navbar__center" id="nav-center">
+        <a href="/classes.html" class="navbar__link active">Programs</a>
         <a href="/results.html" class="navbar__link">Results</a>
+        <a href="/about.html" class="navbar__link">Our Approach</a>
+        <a href="/schedule.html" class="navbar__link">Schedule</a>
         <a href="/contact.html" class="navbar__link">Contact</a>
-        <a href="/login.html" class="navbar__link">Login</a>
-        <div class="navbar__cta">
-          <a href="/contact.html" class="btn btn--primary btn--sm">Book Demo Class</a>
-        </div>
+      </div>
+      <div class="navbar__right">
+        <a href="/login.html" class="navbar__login">Student Login</a>
+        <a href="/contact.html" class="btn btn--primary btn--sm">Book a Demo</a>
       </div>
       <div class="navbar__hamburger" id="nav-hamburger">
         <span></span><span></span><span></span>
@@ -156,24 +38,35 @@
     </div>
   </nav>
   <div class="nav-overlay" id="nav-overlay"></div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="/index.html" class="mobile-nav__link">Home</a>
+    <a href="/classes.html" class="mobile-nav__link active">Programs</a>
+    <a href="/results.html" class="mobile-nav__link">Results</a>
+    <a href="/about.html" class="mobile-nav__link">Our Approach</a>
+    <a href="/schedule.html" class="mobile-nav__link">Schedule</a>
+    <a href="/contact.html" class="mobile-nav__link">Contact</a>
+    <a href="/login.html" class="mobile-nav__link">Student Login</a>
+    <div class="mobile-nav__cta">
+      <a href="/contact.html" class="btn btn--primary">Book a Demo</a>
+    </div>
+  </div>
 
   <!-- PAGE HEADER -->
   <section class="page-header">
     <div class="container">
       <div class="page-header__breadcrumb">
         <a href="/index.html">Home</a>
-        <span>/</span>
-        <span class="current">Classes & Subjects</span>
+        <span class="sep">/</span>
+        <span class="current">Programs</span>
       </div>
-      <h1 class="page-header__title">Classes & Subjects</h1>
-      <p class="page-header__subtitle">Choose the right batch for your grade. Small groups, expert teaching, and exam-focused preparation.</p>
+      <h1 class="page-header__title">Our Programs</h1>
+      <p class="page-header__subtitle">Structured coaching programs for Classes 8–12, covering board exams and competitive entrance preparation.</p>
     </div>
   </section>
 
-  <!-- CLASSES -->
+  <!-- FILTER + CLASS CARDS -->
   <section class="section">
     <div class="container">
-      <!-- Filter Tabs -->
       <div class="filter-tabs reveal">
         <button class="filter-tab active" data-filter="all">All Classes</button>
         <button class="filter-tab" data-filter="8">Class 8</button>
@@ -184,6 +77,7 @@
       </div>
 
       <div class="classes-grid stagger-children">
+
         <!-- Class 8 -->
         <div class="class-card reveal" data-grade="8">
           <div class="class-card__header">
@@ -192,16 +86,24 @@
               <span class="badge badge--offline">Offline</span>
             </div>
           </div>
-          <p class="class-card__description">Building a strong foundation in science and mathematics. Focus on NCERT concepts, problem-solving skills, and preparing for higher classes.</p>
+          <p class="class-card__description">Foundation building for middle school students. Focus on strong basics in Mathematics and Science that prepare them for higher classes.</p>
           <div class="class-card__subjects">
             <span class="class-card__subject">Mathematics</span>
             <span class="class-card__subject">Science</span>
-            <span class="class-card__subject">English</span>
           </div>
           <div class="class-card__details">
-            <div class="class-card__detail"><span>🕐</span> Mon, Wed, Fri — 3:00 PM to 4:30 PM</div>
-            <div class="class-card__detail"><span>👥</span> Max 12 students per batch</div>
-            <div class="class-card__detail"><span>📋</span> CBSE / ICSE Syllabus</div>
+            <div class="class-card__detail">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Wed & Fri — 3:00 to 4:30 PM
+            </div>
+            <div class="class-card__detail">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              Small Batch — Max 15
+            </div>
+            <div class="class-card__detail">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              CBSE / NCERT Aligned
+            </div>
           </div>
           <div class="class-card__footer">
             <a href="/contact.html" class="btn btn--secondary">Enquire Now</a>
@@ -217,18 +119,25 @@
               <span class="badge badge--online">Online</span>
             </div>
           </div>
-          <p class="class-card__description">Critical year for building board exam habits. Thorough coverage of NCERT with additional practice material and regular chapter tests.</p>
+          <p class="class-card__description">Comprehensive coaching with focus on building analytical thinking and exam readiness for board exams.</p>
           <div class="class-card__subjects">
             <span class="class-card__subject">Mathematics</span>
-            <span class="class-card__subject">Physics</span>
-            <span class="class-card__subject">Chemistry</span>
-            <span class="class-card__subject">Biology</span>
+            <span class="class-card__subject">Science</span>
             <span class="class-card__subject">English</span>
           </div>
           <div class="class-card__details">
-            <div class="class-card__detail"><span>🕐</span> Mon to Sat — 4:30 PM to 6:00 PM</div>
-            <div class="class-card__detail"><span>👥</span> Max 15 students per batch</div>
-            <div class="class-card__detail"><span>📋</span> CBSE / ICSE Syllabus</div>
+            <div class="class-card__detail">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Mon–Fri — 4:30 to 6:00 PM
+            </div>
+            <div class="class-card__detail">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              Small Batch — Max 15
+            </div>
+            <div class="class-card__detail">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              Weekly Tests + Doubt Sessions
+            </div>
           </div>
           <div class="class-card__footer">
             <a href="/contact.html" class="btn btn--secondary">Enquire Now</a>
@@ -244,68 +153,60 @@
               <span class="badge badge--online">Online</span>
             </div>
           </div>
-          <p class="class-card__description">Board exam year — intensive preparation with complete syllabus coverage, mock tests, previous year papers, and time management training.</p>
+          <p class="class-card__description">Intensive board exam preparation with mock tests, previous year analysis, and focused revision strategy.</p>
           <div class="class-card__subjects">
             <span class="class-card__subject">Mathematics</span>
-            <span class="class-card__subject">Physics</span>
-            <span class="class-card__subject">Chemistry</span>
-            <span class="class-card__subject">Biology</span>
+            <span class="class-card__subject">Science</span>
             <span class="class-card__subject">English</span>
           </div>
           <div class="class-card__details">
-            <div class="class-card__detail"><span>🕐</span> Mon to Sat — 6:00 PM to 8:00 PM</div>
-            <div class="class-card__detail"><span>👥</span> Max 15 students per batch</div>
-            <div class="class-card__detail"><span>📋</span> CBSE Board + Sample Papers</div>
+            <div class="class-card__detail">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Mon–Fri — 6:00 to 8:00 PM
+            </div>
+            <div class="class-card__detail">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              Small Batch — Max 15
+            </div>
+            <div class="class-card__detail">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              Board Preparation + Mock Tests
+            </div>
           </div>
           <div class="class-card__footer">
             <a href="/contact.html" class="btn btn--primary">Enquire Now</a>
           </div>
         </div>
 
-        <!-- Class 11 Science -->
+        <!-- Class 11 -->
         <div class="class-card reveal" data-grade="11">
           <div class="class-card__header">
-            <div class="class-card__grade">Class 11 — Science</div>
+            <div class="class-card__grade">Class 11</div>
             <div class="class-card__badges">
               <span class="badge badge--offline">Offline</span>
               <span class="badge badge--online">Online</span>
             </div>
           </div>
-          <p class="class-card__description">Advanced science coaching with dual focus — school exams and competitive entrance preparation (JEE/NEET foundation). Strong concept building year.</p>
+          <p class="class-card__description">Senior secondary coaching with emphasis on conceptual depth. Covers full CBSE syllabus with JEE/NEET foundation.</p>
           <div class="class-card__subjects">
             <span class="class-card__subject">Mathematics</span>
             <span class="class-card__subject">Physics</span>
             <span class="class-card__subject">Chemistry</span>
-            <span class="class-card__subject">Computer Sc.</span>
-          </div>
-          <div class="class-card__details">
-            <div class="class-card__detail"><span>🕐</span> Mon to Sat — 8:00 AM to 10:00 AM</div>
-            <div class="class-card__detail"><span>👥</span> Max 12 students per batch</div>
-            <div class="class-card__detail"><span>📋</span> CBSE + JEE/NEET Foundation</div>
-          </div>
-          <div class="class-card__footer">
-            <a href="/contact.html" class="btn btn--secondary">Enquire Now</a>
-          </div>
-        </div>
-
-        <!-- Class 11 Bio -->
-        <div class="class-card reveal" data-grade="11">
-          <div class="class-card__header">
-            <div class="class-card__grade">Class 11 — Biology</div>
-            <div class="class-card__badges">
-              <span class="badge badge--offline">Offline</span>
-            </div>
-          </div>
-          <p class="class-card__description">Dedicated Biology batch for medical aspirants. Comprehensive NCERT coverage with NEET-level practice and diagram-based learning.</p>
-          <div class="class-card__subjects">
             <span class="class-card__subject">Biology</span>
-            <span class="class-card__subject">Physics</span>
-            <span class="class-card__subject">Chemistry</span>
           </div>
           <div class="class-card__details">
-            <div class="class-card__detail"><span>🕐</span> Mon to Sat — 10:00 AM to 12:00 PM</div>
-            <div class="class-card__detail"><span>👥</span> Max 10 students per batch</div>
-            <div class="class-card__detail"><span>📋</span> CBSE + NEET Preparation</div>
+            <div class="class-card__detail">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Mon–Sat — 8:00 AM to 12:00 PM
+            </div>
+            <div class="class-card__detail">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              Small Batch — Max 15
+            </div>
+            <div class="class-card__detail">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              CBSE + JEE/NEET Foundation
+            </div>
           </div>
           <div class="class-card__footer">
             <a href="/contact.html" class="btn btn--secondary">Enquire Now</a>
@@ -321,48 +222,42 @@
               <span class="badge badge--online">Online</span>
             </div>
           </div>
-          <p class="class-card__description">Final year intensive — complete board exam preparation with mock tests, revision sessions, and competitive exam guidance. Results-driven approach.</p>
+          <p class="class-card__description">Complete board exam preparation with additional competitive exam support. Includes revision, mock tests, and personalised coaching.</p>
           <div class="class-card__subjects">
             <span class="class-card__subject">Mathematics</span>
             <span class="class-card__subject">Physics</span>
             <span class="class-card__subject">Chemistry</span>
+            <span class="class-card__subject">Biology</span>
             <span class="class-card__subject">English</span>
-            <span class="class-card__subject">Computer Sc.</span>
+            <span class="class-card__subject">Computer Science</span>
           </div>
           <div class="class-card__details">
-            <div class="class-card__detail"><span>🕐</span> Mon to Sat — 2:00 PM to 4:00 PM</div>
-            <div class="class-card__detail"><span>👥</span> Max 12 students per batch</div>
-            <div class="class-card__detail"><span>📋</span> CBSE Board + JEE/NEET</div>
+            <div class="class-card__detail">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Mon–Sat — Morning & Afternoon
+            </div>
+            <div class="class-card__detail">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              Small Batch — Max 15
+            </div>
+            <div class="class-card__detail">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              Board + Competitive Prep
+            </div>
           </div>
           <div class="class-card__footer">
             <a href="/contact.html" class="btn btn--primary">Enquire Now</a>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- INFO STRIP -->
-  <section class="section section--dark" style="padding: var(--space-16) 0;">
-    <div class="container">
-      <div class="grid-3" style="text-align: center;">
-        <div class="reveal">
-          <div style="font-size: var(--text-3xl); margin-bottom: var(--space-3);">📞</div>
-          <h4 style="color: white; margin-bottom: var(--space-2);">Need Help Choosing?</h4>
-          <p style="color: var(--color-gray-400); font-size: var(--text-sm);">Call us and we'll help you pick the right batch and subjects for your child.</p>
-          <a href="tel:+919876543210" class="btn btn--white btn--sm" style="margin-top: var(--space-4);">Call Now</a>
-        </div>
-        <div class="reveal">
-          <div style="font-size: var(--text-3xl); margin-bottom: var(--space-3);">🎯</div>
-          <h4 style="color: white; margin-bottom: var(--space-2);">Free Demo Class</h4>
-          <p style="color: var(--color-gray-400); font-size: var(--text-sm);">Try a class before you commit. Experience our teaching style with no obligations.</p>
-          <a href="/contact.html" class="btn btn--accent btn--sm" style="margin-top: var(--space-4);">Book Demo</a>
-        </div>
-        <div class="reveal">
-          <div style="font-size: var(--text-3xl); margin-bottom: var(--space-3);">💬</div>
-          <h4 style="color: white; margin-bottom: var(--space-2);">WhatsApp Query</h4>
-          <p style="color: var(--color-gray-400); font-size: var(--text-sm);">Send us a quick message on WhatsApp for instant answers to your questions.</p>
-          <a href="https://wa.me/919876543210" class="btn btn--whatsapp btn--sm" style="margin-top: var(--space-4);" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+
+      <!-- Bottom CTA -->
+      <div class="reveal" style="margin-top: var(--space-16); text-align: center;">
+        <p style="color: var(--slate); margin-bottom: var(--space-6);">Can't find what you're looking for? We offer personalised programs too.</p>
+        <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+          <a href="/contact.html" class="btn btn--primary">Contact Us</a>
+          <a href="https://wa.me/919876543210" class="btn btn--whatsapp" target="_blank" rel="noopener">WhatsApp</a>
         </div>
       </div>
     </div>
@@ -377,20 +272,28 @@
           <p class="footer__brand-desc">Personalised coaching for Classes 8–12. Building strong foundations, one student at a time.</p>
         </div>
         <div>
-          <h4 class="footer__heading">Quick Links</h4>
+          <h4 class="footer__heading">Programs</h4>
           <div class="footer__links">
-            <a href="/index.html">Home</a>
-            <a href="/about.html">About</a>
-            <a href="/classes.html">Classes</a>
-            <a href="/schedule.html">Schedule</a>
+            <a href="/classes.html">Classes 8–10</a>
+            <a href="/classes.html">Classes 11–12</a>
+            <a href="/classes.html">JEE Foundation</a>
+            <a href="/classes.html">NEET Preparation</a>
           </div>
         </div>
         <div>
-          <h4 class="footer__heading">Resources</h4>
+          <h4 class="footer__heading">Academy</h4>
           <div class="footer__links">
+            <a href="/about.html">About</a>
             <a href="/results.html">Results</a>
+            <a href="/schedule.html">Schedule</a>
             <a href="/contact.html">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Students</h4>
+          <div class="footer__links">
             <a href="/login.html">Student Login</a>
+            <a href="/schedule.html">Class Schedule</a>
             <a href="/login.html">Teacher Login</a>
           </div>
         </div>
@@ -400,15 +303,16 @@
             <a href="tel:+919876543210">+91 98765 43210</a>
             <a href="mailto:info@excelacademy.in">info@excelacademy.in</a>
             <a href="https://wa.me/919876543210" target="_blank" rel="noopener">WhatsApp</a>
+            <span style="color: var(--slate);">42 Knowledge Lane, New Delhi</span>
           </div>
         </div>
       </div>
       <div class="footer__bottom">
-        <p>© 2024 Excel Academy. All rights reserved.</p>
+        <p>&copy; 2024 Excel Academy. All rights reserved.</p>
         <div class="footer__social">
-          <a href="#" aria-label="Facebook">📘</a>
-          <a href="#" aria-label="Instagram">📸</a>
-          <a href="#" aria-label="YouTube">▶️</a>
+          <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
         </div>
       </div>
     </div>
