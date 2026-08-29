@@ -139,6 +139,10 @@
   display: block;
 }
 
+.mobile-nav {
+  display: none;
+}
+
 
 /* ══════════ BUTTONS ══════════ */
 .btn {
