@@ -94,36 +94,51 @@ async function callGemini(
     ],
   };
 
-  const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent?key=${apiKey}`,
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
+  const models = ["gemini-3.5-flash", "gemini-3.5-flash-lite", "gemini-3.6-flash"];
+  let lastError: Error | null = null;
+
+  for (const model of models) {
+    try {
+      const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(apiKey.trim())}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        }
+      );
+
+      if (!res.ok) {
+        const errText = await res.text();
+        console.warn(`[Gemini] model ${model} failed with ${res.status}: ${errText.slice(0, 150)}`);
+        lastError = new Error(`Gemini ${model} ${res.status}: ${errText}`);
+        continue; // try next model
+      }
+
+      const data = await res.json();
+      const parts = data?.candidates?.[0]?.content?.parts || [];
+      const text = parts.map((p: { text?: string }) => p.text || "").join("").trim();
+
+      if (text) {
+        return text;
+      }
+    } catch (err: unknown) {
+      console.warn(`[Gemini] fetch error on model ${model}:`, err);
+      lastError = err instanceof Error ? err : new Error(String(err));
     }
-  );
-
-  if (!res.ok) {
-    const errText = await res.text();
-    throw new Error(`Gemini API error ${res.status}: ${errText}`);
   }
 
-  const data = await res.json();
-  const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-
-  if (!text) {
-    throw new Error("No text in Gemini response");
-  }
-
-  return text.trim();
+  throw lastError || new Error("All Gemini models failed to respond");
 }
 
 // ── Route handler ─────────────────────────────────────────────────────────
 
 export async function POST(req: NextRequest) {
+  let userMessage = "";
   try {
     const body: RequestBody = await req.json();
     const { message, history = [] } = body;
+    userMessage = message || "";
 
     if (!message || typeof message !== "string" || message.trim().length === 0) {
       return NextResponse.json(
@@ -132,15 +147,21 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY ?? process.env.GEMINI_API_KEY;
+    const rawKey =
+      process.env.GEMINI_API_KEY ??
+      process.env["GEMINI_API_KEY Value:"] ??
+      process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+
+    const apiKey = rawKey ? rawKey.trim().replace(/^["']|["']$/g, "") : undefined;
 
     if (!apiKey) {
-      // Graceful fallback: return a helpful message without AI
-      return NextResponse.json({
-        reply:
-          "Our AI assistant isn't configured yet. For immediate help, please contact Excel Academy at +91 98765 43210 or email info@excelacademy.in. We're available Monday–Saturday, 8 AM–8 PM.",
-        fallback: true,
-      });
+      // Return helpful message with knowledge base data if available
+      const results = retrieve(message, 2);
+      const answer = results.length > 0
+        ? `${results.map((r) => r.chunk.text).join("\n\n")}\n\nFor more details or admissions, please contact Excel Academy at +91 98765 43210 or info@excelacademy.in.`
+        : "Welcome to Excel Academy! For course details, schedule, or admission enquiries, please call +91 98765 43210 or email info@excelacademy.in.";
+
+      return NextResponse.json({ reply: answer, fallback: true });
     }
 
     // 1. Retrieve relevant context
@@ -150,19 +171,19 @@ export async function POST(req: NextRequest) {
     // 2. Build system prompt with context
     const systemPrompt = buildSystemPrompt(context);
 
-    // 3. Call Gemini
+    // 3. Call Gemini with multi-model fallback
     const reply = await callGemini(systemPrompt, history, message, apiKey);
 
     return NextResponse.json({ reply, fallback: false });
   } catch (err) {
     console.error("[/api/chat] error:", err);
-    return NextResponse.json(
-      {
-        reply:
-          "Sorry, I ran into an issue. Please contact Excel Academy directly at +91 98765 43210 or info@excelacademy.in.",
-        fallback: true,
-      },
-      { status: 200 } // return 200 so the client shows the fallback message nicely
-    );
+
+    // Resilient fallback: answer from the knowledge base rather than displaying an error
+    const results = retrieve(userMessage, 2);
+    const fallbackAnswer = results.length > 0
+      ? `${results.map((r) => r.chunk.text).join("\n\n")}\n\nFor personalized help or admission enquiries, reach us at +91 98765 43210 or info@excelacademy.in.`
+      : "For course details, fee structure, or admissions, please reach Excel Academy directly at +91 98765 43210 or email info@excelacademy.in (Mon–Sat, 8 AM–8 PM).";
+
+    return NextResponse.json({ reply: fallbackAnswer, fallback: true }, { status: 200 });
   }
 }
