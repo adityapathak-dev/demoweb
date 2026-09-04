@@ -165,10 +165,18 @@ export default function ChatWidget() {
   // Focus input when chat opens
   useEffect(() => {
     if (isOpen) {
-      setTimeout(() => inputRef.current?.focus(), 150);
-      setHasNotification(false);
+      const t = setTimeout(() => inputRef.current?.focus(), 150);
+      return () => clearTimeout(t);
     }
   }, [isOpen]);
+
+  const toggleOpen = useCallback(() => {
+    setIsOpen((prev) => {
+      const next = !prev;
+      if (next) setHasNotification(false);
+      return next;
+    });
+  }, []);
 
   const sendMessage = useCallback(
     async (text: string) => {
@@ -517,7 +525,7 @@ export default function ChatWidget() {
 
           <button
             id="chat-open-btn"
-            onClick={() => setIsOpen((v) => !v)}
+            onClick={toggleOpen}
             className="chat-trigger"
             aria-label={isOpen ? "Close chat assistant" : "Open chat assistant"}
             aria-expanded={isOpen}
