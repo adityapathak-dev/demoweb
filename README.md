@@ -37,3 +37,28 @@ npm run lint
   outcomes, coral = human voice; one accent per subject.
 - All 3D mounts only when WebGL is available, motion is not reduced, and the
   scene is in view; otherwise a pure-CSS fallback carries the composition.
+
+## AI Chatbot (RAG)
+
+A floating chat widget (bottom-right) answers visitor questions using
+Retrieval-Augmented Generation grounded in the academy's own data.
+
+```
+lib/knowledge-base.ts  # ~25 factual text chunks (programs, schedule, results…)
+lib/rag.ts             # BM25-style keyword retriever — no vector DB needed
+app/api/chat/route.ts  # POST /api/chat — retrieval → Gemini 1.5 Flash → reply
+components/ChatWidget.tsx  # Glassmorphism floating widget
+```
+
+### Local setup
+
+```bash
+cp .env.local.example .env.local
+# Add your Gemini API key from https://aistudio.google.com/
+```
+
+### Vercel deployment
+
+Add `GEMINI_API_KEY` in **Project Settings → Environment Variables** on Vercel.
+The chatbot degrades gracefully (shows a contact-us message) if the key is absent.
+
