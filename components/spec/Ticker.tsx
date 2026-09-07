@@ -16,7 +16,7 @@ export default function SpecTicker() {
           <div key={half} className="flex shrink-0" aria-hidden={half === 1}>
             {row.map((t, i) => (
               <span key={`${half}-${i}`} className="flex items-center gap-3 whitespace-nowrap px-5 text-xs font-medium text-smoke">
-                {t} <span className="text-border">|</span>
+                {t} <span className="text-gold" aria-hidden>◆</span>
               </span>
             ))}
           </div>

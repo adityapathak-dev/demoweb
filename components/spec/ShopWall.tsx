@@ -6,9 +6,20 @@ import { SHOP_CATEGORIES } from "@/lib/spec";
 
 /**
  * Asymmetric category grid: one large featured tile + smaller ones.
- * Hover: image zooms, CTA fades in. Equal-box grids read as templates.
+ * Cards tilt in 3D perspective on hover (max ~5°); image zooms, CTA fades in.
  */
 export default function ShopWall() {
+  function onTilt(e: React.MouseEvent<HTMLElement>) {
+    const el = e.currentTarget;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const r = el.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    el.style.transform = `perspective(1100px) rotateY(${(x * 5).toFixed(2)}deg) rotateX(${(-y * 5).toFixed(2)}deg) translateY(-4px)`;
+  }
+  function onTiltLeave(e: React.MouseEvent<HTMLElement>) {
+    e.currentTarget.style.transform = "";
+  }
   return (
     <section id="collections" aria-labelledby="shopwall-h" className="scroll-mt-24 border-t border-border bg-white py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -38,6 +49,8 @@ export default function ShopWall() {
               >
                 <Link
                   href={c.href}
+                  onMouseMove={onTilt}
+                  onMouseLeave={onTiltLeave}
                   className={`card card-lift group relative block overflow-hidden ${featured ? "h-full min-h-[320px] lg:min-h-[420px]" : ""}`}
                   aria-label={`Shop ${c.label} — ${c.blurb}`}
                 >

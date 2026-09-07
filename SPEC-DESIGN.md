@@ -166,6 +166,30 @@ NOT a Lenskart clone: warmer paper base, editorial typography, asymmetric layout
 - Deleted dead `HeroVisual.tsx` / `GlassesShowcase.tsx` (unmounted, superseded
   by the full-bleed hero + `FrameCard3D` tilt). Git history retains them.
 
+### Round 11 — Flagship elevation: ivory/ink/gold + Fraunces + 3D everywhere
+- Palette remapped via tokens (names untouched): `paper` #FAF8F5 ivory,
+  `sand` #F1ECE3, `border` #E6DDCC, `smoke` #8A8580, `heading` #141414;
+  new `gold` #B08D57 / `golddeep` #8A6C3E used sparingly (stars, nav
+  underline, ticker diamonds, booking CTA, seals, footer rules).
+- Type: Fraunces (400/500/600 + italic) for all h1–h3 via one globals rule;
+  Inter stays for body. No rounded geo faces anywhere.
+- Hero rebuilt: editorial serif lead + `HeroShowcase` drag-to-rotate 3D stage
+  (3 staged frames, idle sway, floating spec chips, gold atelier seal, thumb
+  switcher; frozen under reduced-motion). Trust strip kept, icons in gold.
+- Motion: ShopWall cards tilt ≤5°, FaceFinder remounts both panels per shape
+  (fade/slide), TryOn gained a real getUserMedia live-camera mode with
+  simulated fallback, Booking converted to an ink section with gold ambience
+  + gold submit, footer rebuilt as ink flagship with newsletter salon.
+- Imagery: 9 volumetrically-verified Unsplash photos added (`at-*`) + 4
+  reviewer portraits (`face-*`); catalog now 18 frames, every product photo
+  unique; lookbook refreshed; demo-photo disclaimer kept honest.
+- Routes: +13 (`/shop/[category]` ×4, `/product/[sku]` ×18, /stores,
+  /track-order, /try-on, /face-shape-guide, /prescription-guide,
+  /lens-technology, /faq, /warranty, /privacy-policy, /terms, /sitemap).
+  Footer links all resolve; utility strip gained Track/Stores.
+- Known gap (needs client shoot): 30+ unique frame photos. We ship 20 real
+  product/store images with zero repeats rather than 30 with dupes.
+
 ## 7. What we stole (patterns) vs. invented
 - From Lenskart: offer ticker, try-on CTA placement, trust badge row, price+MRP+off.
 - From Aesop/Ace & Tate: warm paper, numbered services, editorial whitespace.

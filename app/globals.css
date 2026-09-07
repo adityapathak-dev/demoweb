@@ -1,16 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #FFFFFF;
-  --color-ink: #2B2B2B;
-  --color-heading: #1A1A1A;
-  --color-sand: #F7F7F7;
+  --color-paper: #FAF8F5;
+  --color-ink: #23201B;
+  --color-heading: #141414;
+  --color-sand: #F1ECE3;
   --color-card: #FFFFFF;
-  --color-border: #EAEAEA;
-  --color-smoke: #6B6B6B;
-  --color-disabled: #C4C4C4;
+  --color-border: #E6DDCC;
+  --color-smoke: #8A8580;
+  --color-disabled: #C4BFAF;
+  --color-gold: #B08D57;
+  --color-golddeep: #8A6C3E;
 
   --font-sans: "Inter", -apple-system, Helvetica Neue, Arial, sans-serif;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
 
   --animate-fade-in: fade-in 0.4s ease both;
 
@@ -44,14 +47,16 @@ body {
   line-height: 1.6;
 }
 
-::selection { background: #1A1A1A; color: #FFFFFF; }
+::selection { background: #141414; color: #FAF8F5; }
 
 h1, h2, h3 {
   color: var(--color-heading);
+  font-family: var(--font-display);
   font-weight: 500;
+  font-optical-sizing: auto;
   text-wrap: balance;
-  line-height: 1.2;
-  letter-spacing: normal;
+  line-height: 1.15;
+  letter-spacing: -0.005em;
 }
 
 p, li, blockquote {
@@ -59,23 +64,23 @@ p, li, blockquote {
 }
 
 ::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #F7F7F7; }
-::-webkit-scrollbar-thumb { background: #EAEAEA; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #C4C4C4; }
+::-webkit-scrollbar-track { background: #F1ECE3; }
+::-webkit-scrollbar-thumb { background: #E6DDCC; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #C4BFAF; }
 
 .nav-link { position: relative; }
 .nav-link::after {
   content: ""; position: absolute; left: 0; bottom: -4px; height: 2px; width: 100%;
-  background: #1A1A1A; transform: scaleX(0); transform-origin: left;
+  background: #B08D57; transform: scaleX(0); transform-origin: left;
   transition: transform 0.2s ease;
 }
 .nav-link:hover::after, .nav-link[data-active="true"]::after { transform: scaleX(1); }
 
-/* Cards: soft minimal elevation. Shadow (not border + shadow), generous rounding. */
+/* Cards: soft minimal elevation on ivory. Shadow (not border + shadow). */
 .card {
   background: #FFFFFF;
   border-radius: 12px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 12px rgba(0,0,0,0.06);
+  box-shadow: 0 1px 2px rgba(64, 52, 32, 0.05), 0 2px 12px rgba(64, 52, 32, 0.07);
 }
 
 /* Gentle hover lift for interactive cards — 300ms, no bounce. */
@@ -84,7 +89,7 @@ p, li, blockquote {
 }
 .card-lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 4px rgba(64, 52, 32, 0.05), 0 8px 24px rgba(64, 52, 32, 0.1);
 }
 
 .reveal {
@@ -168,8 +173,8 @@ input, select, textarea {
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 input:focus, select:focus, textarea:focus {
-  border-color: #1A1A1A;
-  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.08);
+  border-color: #141414;
+  box-shadow: 0 0 0 3px rgba(176, 141, 87, 0.18);
   outline: none;
 }
 
@@ -196,7 +201,7 @@ main {
   animation: page-in 0.5s ease both;
 }
 
-:focus-visible { outline: 2px solid #1A1A1A; outline-offset: 2px; }
+:focus-visible { outline: 2px solid #8A6C3E; outline-offset: 2px; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

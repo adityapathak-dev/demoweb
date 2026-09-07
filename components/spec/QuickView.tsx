@@ -172,7 +172,7 @@ function QuickBody({
 
         {typeof frame.rating === "number" && (
           <p className="mt-2 inline-flex w-fit items-center gap-1.5 rounded-lg bg-sand px-2 py-1 text-xs font-medium text-ink">
-            <span aria-hidden>★</span> {frame.rating.toFixed(1)}
+            <span aria-hidden className="text-gold">★</span> {frame.rating.toFixed(1)}
             {typeof frame.reviews === "number" && <span className="font-normal text-smoke">· {frame.reviews} verified reviews</span>}
           </p>
         )}

@@ -148,8 +148,9 @@ export default function FaceFinder() {
             </div>
           </div>
 
-          {/* Right: result panel */}
+          {/* Right: result panel — remounts per shape for a layered fade/slide */}
           <div className="card reveal flex flex-col p-6 sm:p-8" style={{ ["--reveal-delay" as string]: "120ms" }} aria-live="polite">
+            <div key={active.id} className="flex flex-1 animate-[fade-in_0.45s_ease_both] flex-col">
             <p className="text-[11px] font-medium uppercase text-smoke">The {active.label} face</p>
             <h3 className="mt-1 text-2xl font-semibold text-heading">{active.blurb.split(".")[0]}.</h3>
             <p className="mt-2 text-[15px] leading-relaxed text-smoke">{active.blurb}</p>
@@ -161,7 +162,7 @@ export default function FaceFinder() {
                 </li>
               ))}
             </ul>
-            <blockquote className="mt-5 border-l-2 border-heading pl-4 text-[15px] leading-relaxed text-ink">
+            <blockquote className="mt-5 border-l-2 border-gold pl-4 text-[15px] leading-relaxed text-ink">
               <span className="mb-1 block text-xs font-medium uppercase text-smoke">Stylist tip</span>
               {active.tip}
             </blockquote>
@@ -172,6 +173,7 @@ export default function FaceFinder() {
               <Link href="/book" className="rounded-lg border border-border px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-sand">
                 Get fitted in store
               </Link>
+            </div>
             </div>
           </div>
         </div>

@@ -12,28 +12,30 @@ export default function SpecBooking({ compact = false }: { compact?: boolean }) 
   const [sent, setSent] = useState(false);
 
   return (
-    <section aria-labelledby="book-h" className="bg-sand py-16 lg:py-24">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[1fr_1.1fr]">
+    <section aria-labelledby="book-h" className="relative overflow-hidden bg-heading py-16 lg:py-24">
+      {/* Layered depth: soft gold ambience over ink — never a flat block */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_85%_10%,rgba(176,141,87,0.16),transparent_70%),radial-gradient(50%_40%_at_5%_90%,rgba(176,141,87,0.1),transparent_70%)]" />
+      <div className="relative mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[1fr_1.1fr]">
         <div className="reveal">
-          <p className="text-xs font-medium uppercase tracking-normal text-smoke">06 — Book in 30 seconds</p>
-          <h2 id="book-h" className="mt-2 text-[clamp(1.8rem,3.6vw,2.6rem)] font-semibold leading-tight">
+          <p className="text-xs font-medium uppercase tracking-normal text-gold">06 — Book in 30 seconds</p>
+          <h2 id="book-h" className="mt-2 text-[clamp(1.8rem,3.6vw,2.6rem)] font-medium leading-tight text-paper">
             Free eye test. No queue. No jargon.
           </h2>
-          <ul className="mt-6 space-y-3 text-[15px] text-ink">
+          <ul className="mt-6 space-y-3 text-[15px] text-paper/85">
             {["Walk-ins welcome till 8 PM — booking skips the wait", "Prescription SMS'd + printed, valid anywhere", "No purchase pressure — 40% of tests end with 'no change'"].map((t) => (
               <li key={t} className="flex gap-3">
-                <span className="grid h-5 w-5 shrink-0 place-items-center rounded-md bg-sand text-[11px] text-heading" aria-hidden>✓</span>
+                <span className="grid h-5 w-5 shrink-0 place-items-center rounded-md bg-gold text-[11px] font-semibold text-heading" aria-hidden>✓</span>
                 <span>{t}</span>
               </li>
             ))}
           </ul>
-          <div className="card mt-6 p-6">
-            <p className="text-xs font-medium uppercase tracking-normal text-smoke">Find us</p>
-            <address className="mt-1 not-italic leading-relaxed">
+          <div className="mt-6 rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+            <p className="text-xs font-medium uppercase tracking-normal text-gold">Find us</p>
+            <address className="mt-1 not-italic leading-relaxed text-paper">
               {STORE.addressLines[0]}<br />{STORE.addressLines[1]}
             </address>
-            <p className="mt-2 text-sm">{STORE.hoursLines[0]} · {STORE.hoursLines[1]}</p>
-            <a href={STORE.phoneHref} className="mt-4 inline-block rounded-lg bg-heading px-4 py-2 text-[13px] font-medium text-white hover:bg-ink transition-colors">
+            <p className="mt-2 text-sm text-paper/70">{STORE.hoursLines[0]} · {STORE.hoursLines[1]}</p>
+            <a href={STORE.phoneHref} className="mt-4 inline-block rounded-lg bg-paper px-4 py-2 text-[13px] font-medium text-heading transition-colors hover:bg-sand">
               Call {STORE.phoneDisplay}
             </a>
           </div>
@@ -43,7 +45,7 @@ export default function SpecBooking({ compact = false }: { compact?: boolean }) 
           {sent ? (
             <div className="grid min-h-[360px] place-items-center text-center" role="status">
               <div>
-                <p className="mx-auto grid h-14 w-14 place-items-center rounded-lg bg-sand text-xl text-heading" aria-hidden>✓</p>
+                <p className="mx-auto grid h-14 w-14 place-items-center rounded-lg bg-sand text-xl text-golddeep" aria-hidden>✓</p>
                 <h3 className="mt-4 text-2xl font-medium text-heading">{day}, {slot} — held!</h3>
                 <p className="mt-2 text-sm text-smoke">We&apos;ve SMS&apos;d confirmation + a map pin. Come 5 min early — chai&apos;s on us.</p>
                 <button type="button" onClick={() => setSent(false)} className="mt-5 rounded-lg border border-border bg-transparent px-5 py-2 text-[13px] font-medium text-ink hover:bg-sand transition-colors">
@@ -119,7 +121,7 @@ export default function SpecBooking({ compact = false }: { compact?: boolean }) 
                   <textarea id="bk-note" name="note" rows={2} placeholder="Headaches after screen time, night-driving glare…" className="mt-1.5 w-full rounded-lg border border-border bg-white px-3.5 py-2.5 text-sm placeholder:text-disabled" />
                 </div>
               )}
-              <button type="submit" className="w-full rounded-lg bg-black py-3.5 text-sm font-medium text-white hover:bg-ink transition-colors">
+              <button type="submit" className="w-full rounded-lg bg-gold py-3.5 text-sm font-semibold text-heading transition-colors hover:bg-golddeep hover:text-white">
                 Hold my {day.toLowerCase()} {slot} slot — free
               </button>
               <p className="text-center text-xs text-smoke">No advance. SMS confirmation in ~60 seconds.</p>

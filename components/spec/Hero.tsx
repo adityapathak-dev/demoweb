@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { STORE } from "@/lib/spec";
+import HeroShowcase from "./HeroShowcase";
 
 function LensIcon() {
   return (
@@ -30,87 +30,55 @@ function EyeIcon() {
 }
 
 /**
- * Full-width hero: real store photo at full bleed, copy docked on a solid
- * white card (no text-on-photo, no gradient scrims). Trust strip sits below
- * the fold as a thin icon row.
+ * Flagship hero — editorial serif voice on the left, drag-to-rotate atelier
+ * stage on the right. Copy stays concrete: exam, lenses, price, warranty.
  */
 export default function SpecHero() {
   return (
-    <section aria-labelledby="hero-h" className="bg-white pt-[100px]">
-      <div className="relative">
-        <div className="relative h-[62vh] min-h-[440px] w-full overflow-hidden lg:h-[78vh]">
-          <Image
-            src="/frames/hero.jpg"
-            alt="Customer browsing the wall of frames inside the SPEC store"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
-          {/* Copy card — solid white, docked left */}
-          <div className="absolute inset-0 mx-auto flex max-w-7xl items-center px-5 sm:px-8">
-            <div className="reveal max-w-xl rounded-2xl bg-white p-7 shadow-[0_16px_48px_rgba(0,0,0,0.16)] sm:p-9">
-              <p className="inline-flex items-center gap-2 rounded-lg bg-sand px-3 py-1.5 text-xs font-medium text-smoke">
-                <span className="h-1.5 w-1.5 rounded-full bg-heading" aria-hidden />
-                Inorbit Mall · HITEC City · {STORE.rating}★ ({STORE.reviews} reviews)
-              </p>
-              <h1 id="hero-h" className="mt-4 text-[clamp(2rem,4.6vw,3.1rem)] font-semibold leading-[1.1]">
-                Eyes checked properly. Glasses ready today.
-              </h1>
-              <p className="mt-4 text-[1.02rem] leading-relaxed text-smoke">
-                A 20-minute digital exam comes before any sale here — then same-day lenses from{" "}
-                <strong className="font-semibold text-heading">₹1,499 all-in</strong>, with a 1-year warranty on
-                every pair.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link href="/book" className="rounded-lg bg-black px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-ink">
-                  Book free eye test
-                </Link>
-                <Link href="/collections" className="rounded-lg border border-border bg-white px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-sand">
-                  Try 5 at home — free
-                </Link>
-              </div>
-            </div>
+    <section aria-labelledby="hero-h" className="bg-paper pt-[100px]">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-16 pt-10 sm:px-8 lg:grid-cols-[0.95fr_1.05fr] lg:pb-24 lg:pt-16">
+        <div className="reveal">
+          <p className="inline-flex items-center gap-2 rounded-lg bg-sand px-3 py-1.5 text-xs font-medium text-smoke">
+            <span className="h-1.5 w-1.5 rounded-full bg-gold" aria-hidden />
+            Inorbit Mall · HITEC City · {STORE.rating}★ ({STORE.reviews} reviews)
+          </p>
+          <h1 id="hero-h" className="mt-5 text-[clamp(2.4rem,5vw,3.8rem)] font-medium leading-[1.05]">
+            An optometrist first. <em className="text-golddeep">A frame studio</em> second.
+          </h1>
+          <p className="mt-5 max-w-lg text-[1.02rem] leading-relaxed text-smoke">
+            A 20-minute digital exam before any sale — then lenses cut in-store in 45 minutes,
+            from <strong className="font-semibold text-heading">₹1,499 all-in</strong> with a
+            1-year warranty stamped on every pair.
+          </p>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <Link href="/book" className="rounded-lg bg-heading px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-ink">
+              Book free eye test
+            </Link>
+            <Link href="/shop/eyeglasses" className="rounded-lg border border-border bg-white px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-sand">
+              Shop the collection
+            </Link>
           </div>
-          {/* Scroll cue */}
-          <a
-            href="#collections"
-            aria-label="Scroll to collections"
-            className="absolute bottom-5 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-1.5 rounded-full bg-white/95 px-4 py-2.5 text-[11px] font-medium text-ink shadow-[0_4px_16px_rgba(0,0,0,0.12)] transition-transform hover:-translate-y-0.5 sm:flex"
-          >
-            <span aria-hidden className="block animate-bounce text-sm leading-none">↓</span>
-            Browse the shelf
-          </a>
-          {/* Shoppable product tag — the hero's dynamic showcase element:
-              a live frame pinned to the photo, gently levitating via
-              [data-depth] (frozen under prefers-reduced-motion). */}
-          <Link
-            href="/book?frame=SP-CL01"
-            data-depth="40"
-            aria-label="Try the Madhapur Wayfarer Classic at home — 2,299 rupees"
-            className="absolute bottom-5 right-5 flex items-center gap-3 rounded-xl bg-white/95 py-2 pl-2 pr-4 shadow-[0_8px_24px_rgba(0,0,0,0.16)] backdrop-blur transition-transform hover:-translate-y-0.5 sm:right-8"
-          >
-            <span className="relative block h-11 w-16 shrink-0 overflow-hidden rounded-lg bg-sand">
-              <Image
-                src="/frames/sp-classic.jpg"
-                alt=""
-                fill
-                sizes="64px"
-                className="object-cover"
-              />
-            </span>
-            <span>
-              <span className="block text-xs font-semibold text-heading">Wayfarer Classic · ₹2,299</span>
-              <span className="mt-0.5 block text-[11px] font-medium text-smoke underline underline-offset-2">
-                Try at home — free →
-              </span>
-            </span>
-          </Link>
+          <dl className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
+            {[
+              ["18,000+", "exams since 2016"],
+              ["45 min", "lenses, cut in-store"],
+              ["120+", "frames on the wall"],
+            ].map(([v, l]) => (
+              <div key={l}>
+                <dt className="sr-only">{l}</dt>
+                <dd className="text-xl font-semibold text-heading">{v}</dd>
+                <dd className="text-xs text-smoke">{l}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+        <div className="reveal" style={{ ["--reveal-delay" as string]: "140ms" }}>
+          <HeroShowcase />
         </div>
       </div>
 
       {/* Thin trust strip below the fold */}
-      <div className="border-b border-border bg-white">
+      <div className="border-y border-border bg-white">
         <ul className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-5 py-4 sm:justify-between sm:px-8">
           {[
             { icon: <LensIcon />, title: "45-min in-store lenses", note: "cut while you wait" },
@@ -118,7 +86,7 @@ export default function SpecHero() {
             { icon: <EyeIcon />, title: "Free eye test", note: "with any frame" },
           ].map((b) => (
             <li key={b.title} className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-lg bg-sand text-heading" aria-hidden>
+              <span className="grid h-10 w-10 place-items-center rounded-lg bg-sand text-golddeep" aria-hidden>
                 {b.icon}
               </span>
               <span>

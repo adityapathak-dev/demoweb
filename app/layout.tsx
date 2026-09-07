@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import SpecNavbar from "@/components/spec/Navbar";
 import CartDrawer from "@/components/spec/CartDrawer";
@@ -12,6 +12,14 @@ const body = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
   weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const display = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -32,7 +40,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={body.variable}>
+    <html lang="en" className={`${body.variable} ${display.variable}`}>
       <body className="bg-paper font-sans text-ink">
         <a
           href="#main"

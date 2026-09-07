@@ -8,18 +8,20 @@ Tagline: **"See clearly. Look sharp."**
 ## Stack
 
 - Next.js (App Router) + TypeScript + React server/client components
-- Tailwind CSS v4 (SPEC tokens in `app/globals.css`)
-- Three.js + React Three Fiber (procedural hero frame model, client-only, CSS fallback)
+- Tailwind CSS v4 (SPEC tokens in `app/globals.css`: ivory/ink/gold, Fraunces + Inter)
+- No 3D runtime needed — showcase motion is CSS 3D transforms + pointer physics
 
 ## Routes
 
 ```
-app/                  # / /collections /services /about /book /contact
-components/spec/      # Navbar, Hero, Hero3D, Ticker, Collections, Services,
-                      # Trust, Testimonials, Booking, Footer, Chatbot, …
-lib/spec.ts           # store facts, frames, services, testimonials (single source)
-SPEC-DESIGN.md        # design system + rationale + evolution log
+/ /collections /shop/eyeglasses /shop/sunglasses /shop/screen /shop/titanium
+/product/[sku] (18 frames) /services /about /book /contact /stores
+/track-order /try-on /face-shape-guide /prescription-guide /lens-technology
+/faq /warranty /privacy-policy /terms /sitemap
 ```
+
+Components in `components/spec/`, data in `lib/spec.ts`,
+design system + evolution log in `SPEC-DESIGN.md`.
 
 ## Develop
 

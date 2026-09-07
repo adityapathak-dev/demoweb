@@ -26,6 +26,10 @@ export type Frame = {
   sku: string;
   name: string;
   shape: "Round" | "Square" | "Cat-eye" | "Oval" | "Aviator" | "Sun wall";
+  /** shop line: eyeglasses | sunglasses | screen (blue-cut ready) | titanium */
+  line: "eyeglasses" | "sunglasses";
+  metal?: boolean;
+  screen?: boolean;
   price: number;
   mrp: number;
   tag?: string;
@@ -49,11 +53,11 @@ export type ShopCategory = {
 };
 
 export const SHOP_CATEGORIES: ShopCategory[] = [
-  { label: "Eyeglasses", blurb: "Everyday acetate + metal", photo: "/frames/sp-r11.jpg", photoAlt: "Chunky black square acetate glasses on a dark wooden table", href: "/collections" },
-  { label: "Sunglasses", blurb: "UV400 + polarized", photo: "/frames/sp-a02.jpg", photoAlt: "Small round black polarized sunglasses on a pink studio background", href: "/collections" },
-  { label: "Blue-cut", blurb: "8-hr screen days", photo: "/frames/sp-vision.jpg", photoAlt: "Close-up of a man wearing square black eyeglasses", href: "/collections" },
-  { label: "Aviators", blurb: "Driving + outdoors", photo: "/frames/sp-breeze.jpg", photoAlt: "Classic black sunglasses on a model in a black jacket", href: "/collections" },
-  { label: "Rimless", blurb: "Feather-light 12 g", photo: "/frames/sp-s04.jpg", photoAlt: "Minimalist silver rimless oval glasses floating on a pale grey background", href: "/collections" },
+  { label: "Eyeglasses", blurb: "Acetate + metal, power-ready", photo: "/frames/at-tortoise-club.jpg", photoAlt: "Tortoise clubmaster eyeglasses resting on an open book", href: "/shop/eyeglasses" },
+  { label: "Sunglasses", blurb: "UV400 + polarized", photo: "/frames/at-dune-sun.jpg", photoAlt: "Black wayfarer sunglasses standing in beach sand", href: "/shop/sunglasses" },
+  { label: "Blue-cut", blurb: "8-hr screen days", photo: "/frames/at-crystal-round.jpg", photoAlt: "Clear round eyeglasses on a pale blue studio background", href: "/shop/screen" },
+  { label: "Aviators", blurb: "Driving + outdoors", photo: "/frames/sp-breeze.jpg", photoAlt: "Classic black sunglasses on a model in a black jacket", href: "/shop/sunglasses" },
+  { label: "Rimless", blurb: "Feather-light 12 g", photo: "/frames/sp-s04.jpg", photoAlt: "Minimalist silver rimless oval glasses floating on a pale grey background", href: "/shop/titanium" },
   { label: "Sun wall", blurb: "40+ in store to try", photo: "/frames/sp-w07.jpg", photoAlt: "Wall display of twelve sunglasses in wayfarer, round and panto styles", href: "/book" },
 ];
 
@@ -74,15 +78,24 @@ export const SHOP_WALL: WallShot[] = [
 ];
 
 export const FRAMES: Frame[] = [
-  { sku: "SP-R11", name: "Hitech Square Noir", shape: "Square", price: 1499, mrp: 2999, tag: "Bestseller", photo: "/frames/sp-r11.jpg", photoAlt: "Chunky black square acetate glasses on a dark wooden table", material: "Hand-finished acetate", weight: "24 g", best: "Oval + heart faces", rating: 4.9, reviews: 412 },
-  { sku: "SP-S04", name: "Gachibowli Rimless Silver", shape: "Oval", price: 1999, mrp: 3499, tag: "New", photo: "/frames/sp-s04.jpg", photoAlt: "Minimalist silver rimless oval glasses floating on a pale grey background", material: "Feather metal, rimless mount", weight: "12 g", best: "Barely-there everyday wear", rating: 4.8, reviews: 186 },
-  { sku: "SP-C09", name: "Jubilee Cat-Eye Magenta", shape: "Cat-eye", price: 2499, mrp: 4499, photo: "/frames/sp-c09.jpg", photoAlt: "Magenta cat-eye and violet rectangular glasses styled with pink ribbon", material: "Italian acetate", weight: "21 g", best: "Statement evenings", rating: 4.9, reviews: 203 },
-  { sku: "SP-A02", name: "Kondapur Round Sun", shape: "Round", price: 2999, mrp: 5499, tag: "Polarized", photo: "/frames/sp-a02.jpg", photoAlt: "Small round black polarized sunglasses on a pink studio background", material: "Polarized CR-39, metal trim", weight: "17 g", best: "Driving + outdoor", rating: 4.9, reviews: 327 },
-  { sku: "SP-O17", name: "Madhapur Round Rosé", shape: "Round", price: 1799, mrp: 3299, photo: "/frames/sp-o17.jpg", photoAlt: "Rose-gold round metal glasses resting on a white pedestal", material: "Rose-gold metal", weight: "16 g", best: "Teens + petite faces", rating: 4.7, reviews: 154 },
-  { sku: "SP-W07", name: "Banjara Sun Wall", shape: "Sun wall", price: 2199, mrp: 3999, tag: "40+ in store", photo: "/frames/sp-w07.jpg", photoAlt: "Wall display of twelve sunglasses in wayfarer, round and panto styles", material: "Polarized + UV400 range", weight: "From 19 g", best: "Try the wall in 10 minutes", rating: 4.8, reviews: 98 },
-  { sku: "SP-BRZ", name: "Breeze Aviator Sun", shape: "Aviator", price: 2499, mrp: 4499, tag: "New", photo: "/frames/sp-breeze.jpg", photoAlt: "Classic black sunglasses on a model in a black jacket", material: "Lightweight metal, UV400", weight: "36 g", best: "Men + long commutes", rating: 4.8, reviews: 211 },
-  { sku: "SP-VDI", name: "Vision Square Noir", shape: "Square", price: 1699, mrp: 2999, photo: "/frames/sp-vision.jpg", photoAlt: "Close-up of a man wearing square black eyeglasses", material: "Acetate + anti-glare", weight: "30 g", best: "Office + screen days", rating: 4.9, reviews: 342 },
-  { sku: "SP-CL01", name: "Madhapur Wayfarer Classic", shape: "Square", price: 2299, mrp: 4299, tag: "Bestseller", photo: "/frames/sp-classic.jpg", photoAlt: "Black wayfarer sunglasses in shallow focus — the headline SPEC frame", material: "Hand-polished acetate", weight: "28 g", best: "First premium pair", rating: 5.0, reviews: 528 },
+  { sku: "SP-R11", name: "Hitech Square Noir", shape: "Square", line: "eyeglasses", price: 1499, mrp: 2999, tag: "Bestseller", photo: "/frames/sp-r11.jpg", photoAlt: "Chunky black square acetate glasses on a dark wooden table", material: "Hand-finished acetate", weight: "24 g", best: "Oval + heart faces", rating: 4.9, reviews: 412 },
+  { sku: "SP-S04", name: "Gachibowli Rimless Silver", shape: "Oval", line: "eyeglasses", metal: true, screen: true, price: 1999, mrp: 3499, tag: "New", photo: "/frames/sp-s04.jpg", photoAlt: "Minimalist silver rimless oval glasses floating on a pale grey background", material: "Feather metal, rimless mount", weight: "12 g", best: "Barely-there everyday wear", rating: 4.8, reviews: 186 },
+  { sku: "SP-C09", name: "Jubilee Cat-Eye Magenta", shape: "Cat-eye", line: "eyeglasses", price: 2499, mrp: 4499, photo: "/frames/sp-c09.jpg", photoAlt: "Magenta cat-eye and violet rectangular glasses styled with pink ribbon", material: "Italian acetate", weight: "21 g", best: "Statement evenings", rating: 4.9, reviews: 203 },
+  { sku: "SP-A02", name: "Kondapur Round Sun", shape: "Round", line: "sunglasses", price: 2999, mrp: 5499, tag: "Polarized", photo: "/frames/sp-a02.jpg", photoAlt: "Small round black polarized sunglasses on a pink studio background", material: "Polarized CR-39, metal trim", weight: "17 g", best: "Driving + outdoor", rating: 4.9, reviews: 327 },
+  { sku: "SP-O17", name: "Madhapur Round Rosé", shape: "Round", line: "eyeglasses", metal: true, screen: true, price: 1799, mrp: 3299, photo: "/frames/sp-o17.jpg", photoAlt: "Rose-gold round metal glasses resting on a white pedestal", material: "Rose-gold metal", weight: "16 g", best: "Teens + petite faces", rating: 4.7, reviews: 154 },
+  { sku: "SP-W07", name: "Banjara Sun Wall", shape: "Sun wall", line: "sunglasses", price: 2199, mrp: 3999, tag: "40+ in store", photo: "/frames/sp-w07.jpg", photoAlt: "Wall display of twelve sunglasses in wayfarer, round and panto styles", material: "Polarized + UV400 range", weight: "From 19 g", best: "Try the wall in 10 minutes", rating: 4.8, reviews: 98 },
+  { sku: "SP-BRZ", name: "Breeze Aviator Sun", shape: "Aviator", line: "sunglasses", metal: true, price: 2499, mrp: 4499, tag: "New", photo: "/frames/sp-breeze.jpg", photoAlt: "Classic black sunglasses on a model in a black jacket", material: "Lightweight metal, UV400", weight: "36 g", best: "Men + long commutes", rating: 4.8, reviews: 211 },
+  { sku: "SP-VDI", name: "Vision Square Noir", shape: "Square", line: "eyeglasses", screen: true, price: 1699, mrp: 2999, photo: "/frames/sp-vision.jpg", photoAlt: "Close-up of a man wearing square black eyeglasses", material: "Acetate + anti-glare", weight: "30 g", best: "Office + screen days", rating: 4.9, reviews: 342 },
+  { sku: "SP-CL01", name: "Madhapur Wayfarer Classic", shape: "Square", line: "sunglasses", price: 2299, mrp: 4299, tag: "Bestseller", photo: "/frames/sp-classic.jpg", photoAlt: "Black wayfarer sunglasses in shallow focus — the headline SPEC frame", material: "Hand-polished acetate", weight: "28 g", best: "First premium pair", rating: 5.0, reviews: 528 },
+  { sku: "SP-GR01", name: "Jubilee Gilt Round Sun", shape: "Round", line: "sunglasses", metal: true, price: 3499, mrp: 4999, tag: "Atelier", photo: "/frames/at-gilt-round.jpg", photoAlt: "Gold round metal sunglasses with green lenses on white marble", material: "Gold-tone metal, glass-green lens", weight: "19 g", best: "Evenings + resort wear", rating: 4.9, reviews: 214 },
+  { sku: "SP-DN02", name: "Gachibowli Dune Wayfarer", shape: "Square", line: "sunglasses", price: 2799, mrp: 4299, tag: "Polarized", photo: "/frames/at-dune-sun.jpg", photoAlt: "Black wayfarer sunglasses standing upright in beach sand", material: "Polarized CR-39 acetate", weight: "26 g", best: "Beach + driving", rating: 4.8, reviews: 167 },
+  { sku: "SP-RS03", name: "Rosé Carré Sun", shape: "Square", line: "sunglasses", price: 3999, mrp: 5999, tag: "Limited", photo: "/frames/at-rose-square.jpg", photoAlt: "Beige square gradient sunglasses in soft window light", material: "Milky acetate, gradient lens", weight: "23 g", best: "Brunches + holidays", rating: 5.0, reviews: 89 },
+  { sku: "SP-CE04", name: "Ember Clubmaster", shape: "Square", line: "eyeglasses", screen: true, price: 2499, mrp: 4499, tag: "Bestseller", photo: "/frames/at-club-ember.jpg", photoAlt: "Black and gold clubmaster eyeglasses on a wooden table at dusk", material: "Browline acetate + steel", weight: "27 g", best: "Boardrooms + weddings", rating: 4.9, reviews: 301 },
+  { sku: "SP-HB05", name: "Harbour Crystal Sun", shape: "Round", line: "sunglasses", price: 3299, mrp: 5299, photo: "/frames/at-harbour-round.jpg", photoAlt: "Crystal amber round sunglasses on a boat deck in sunlight", material: "Crystal acetate, amber lens", weight: "22 g", best: "Weekends on the water", rating: 4.8, reviews: 132 },
+  { sku: "SP-PN06", name: "Peach Noir Rectangle", shape: "Square", line: "sunglasses", price: 2999, mrp: 4799, tag: "New", photo: "/frames/at-peach-noir.jpg", photoAlt: "Black rectangular sunglasses on a warm peach studio background", material: "Matte acetate, nylon sun lens", weight: "25 g", best: "Sharp daytime looks", rating: 4.7, reviews: 76 },
+  { sku: "SP-TC07", name: "Tortoise Library Club", shape: "Square", line: "eyeglasses", screen: true, price: 2199, mrp: 3999, photo: "/frames/at-tortoise-club.jpg", photoAlt: "Tortoise clubmaster eyeglasses resting on an open book", material: "Tortoise acetate + alloy", weight: "26 g", best: "Readers + researchers", rating: 4.9, reviews: 248 },
+  { sku: "SP-BR08", name: "Blush Panto Sun", shape: "Round", line: "sunglasses", price: 2599, mrp: 4599, tag: "New", photo: "/frames/at-blush-round.jpg", photoAlt: "Blush-pink round sunglasses with a mustard case on a wooden deck", material: "Blush acetate, brown gradient lens", weight: "21 g", best: "Day outs + travel", rating: 4.8, reviews: 93 },
+  { sku: "SP-CR09", name: "Crystal Mist Round", shape: "Round", line: "eyeglasses", screen: true, price: 1999, mrp: 3499, photo: "/frames/at-crystal-round.jpg", photoAlt: "Clear grey round eyeglasses on a pale blue studio background", material: "Crystal TR90, feather hinge", weight: "14 g", best: "First specs + students", rating: 4.8, reviews: 178 },
 ];
 
 export const SERVICES = [
@@ -122,6 +135,8 @@ export const TESTIMONIALS = [
     area: "Madhapur",
     quote: "Power was off by 0.5 for two years — SPEC caught it in 20 minutes. New blue-cut pair in 3 hours, zero push to buy the expensive one.",
     detail: "Bought SP-S04 · Blue-cut 1.61",
+    face: "/frames/face-01.jpg",
+    faceAlt: "Portrait of reviewer Sneha R.",
     size: "lg",
   },
   {
@@ -129,6 +144,8 @@ export const TESTIMONIALS = [
     area: "HITEC City",
     quote: "Asked for this demo on Monday, brought my whole team on Tuesday. Try-on box came to office next morning.",
     detail: "5 frames · office trial",
+    face: "/frames/face-03.jpg",
+    faceAlt: "Portrait of reviewer Adarsh V.",
     size: "sm",
   },
   {
@@ -136,6 +153,8 @@ export const TESTIMONIALS = [
     area: "Kondapur",
     quote: "Night driving glare is gone. Polarized aviators, fitted while I waited, chai on the house. My third pair from them.",
     detail: "SP-A02 polarized · ₹2,999",
+    face: "/frames/face-02.jpg",
+    faceAlt: "Portrait of reviewer Farhan K.",
     size: "md",
   },
   {
@@ -143,6 +162,8 @@ export const TESTIMONIALS = [
     area: "Jubilee Hills",
     quote: "Kids' first specs without drama. Unbreakable flex frames, free spring adjustment every month. They remember our names.",
     detail: "2 kids' pairs · flex TR90",
+    face: "/frames/face-04.jpg",
+    faceAlt: "Portrait of reviewer Meera.",
     size: "md",
   },
 ];
@@ -207,12 +228,12 @@ export const FACE_SHAPES: FaceShape[] = [
 
 export type Look = { src: string; alt: string; handle: string; frame: string; tall?: boolean };
 
-/** Demo lookbook — real in-store photos; handles are placeholders until real UGC lands. */
+/** Demo lookbook — real photography; handles are placeholders until real UGC lands. */
 export const LOOKBOOK: Look[] = [
-  { src: "/frames/sp-breeze.jpg", alt: "Classic black sunglasses on a model in a black jacket", handle: "@spec.demo.01", frame: "Breeze Aviator Sun", tall: true },
-  { src: "/frames/sp-classic.jpg", alt: "Black wayfarer sunglasses in shallow focus — the headline SPEC frame", handle: "@spec.demo.02", frame: "Wayfarer Classic" },
-  { src: "/frames/sp-vision.jpg", alt: "Close-up of a man wearing square black eyeglasses", handle: "@spec.demo.03", frame: "Vision Square Noir" },
-  { src: "/frames/sp-s04.jpg", alt: "Minimalist silver rimless oval glasses floating on a pale grey background", handle: "@spec.demo.04", frame: "Rimless Silver", tall: true },
-  { src: "/frames/sp-a02.jpg", alt: "Small round black polarized sunglasses on a pink studio background", handle: "@spec.demo.05", frame: "Kondapur Round Sun" },
-  { src: "/frames/sp-o17.jpg", alt: "Rose-gold round metal glasses resting on a white pedestal", handle: "@spec.demo.06", frame: "Round Rosé" },
+  { src: "/frames/at-harbour-round.jpg", alt: "Crystal amber round sunglasses on a boat deck in sunlight", handle: "@spec.demo.01", frame: "Harbour Crystal Sun", tall: true },
+  { src: "/frames/at-rose-square.jpg", alt: "Beige square gradient sunglasses in soft window light", handle: "@spec.demo.02", frame: "Rosé Carré Sun" },
+  { src: "/frames/at-club-ember.jpg", alt: "Black and gold clubmaster eyeglasses on a wooden table at dusk", handle: "@spec.demo.03", frame: "Ember Clubmaster" },
+  { src: "/frames/at-blush-round.jpg", alt: "Blush-pink round sunglasses with a mustard case on a wooden deck", handle: "@spec.demo.04", frame: "Blush Panto Sun", tall: true },
+  { src: "/frames/at-dune-sun.jpg", alt: "Black wayfarer sunglasses standing upright in beach sand", handle: "@spec.demo.05", frame: "Dune Wayfarer" },
+  { src: "/frames/at-tortoise-club.jpg", alt: "Tortoise clubmaster eyeglasses resting on an open book", handle: "@spec.demo.06", frame: "Tortoise Library Club" },
 ];

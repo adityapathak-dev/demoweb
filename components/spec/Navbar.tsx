@@ -162,9 +162,17 @@ export default function SpecNavbar() {
         <div className={cn("overflow-hidden bg-sand text-ink transition-all duration-300", scrolled ? "max-h-0" : "max-h-10")}>
           <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-2 text-xs sm:px-8">
             <p className="truncate text-smoke">Festive offer: flat 40% off frames + free eye test — valid till Tuesday</p>
-            <a href={STORE.phoneHref} className="hidden shrink-0 font-medium text-ink underline underline-offset-2 hover:text-smoke sm:block">
-              {STORE.phoneDisplay}
-            </a>
+            <span className="hidden shrink-0 items-center gap-4 sm:flex">
+              <Link href="/track-order" className="font-medium text-smoke transition-colors hover:text-heading">
+                Track order
+              </Link>
+              <Link href="/stores" className="font-medium text-smoke transition-colors hover:text-heading">
+                Stores
+              </Link>
+              <a href={STORE.phoneHref} className="font-medium text-ink underline underline-offset-2 hover:text-smoke">
+                {STORE.phoneDisplay}
+              </a>
+            </span>
           </div>
         </div>
 

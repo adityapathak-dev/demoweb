@@ -20,7 +20,7 @@ function discount(f: Frame) {
   return 1 - f.price / f.mrp;
 }
 
-export default function SpecCollections({ limit }: { limit?: number }) {
+export default function SpecCollections({ limit, line }: { limit?: number; line?: "eyeglasses" | "sunglasses" | "screen" | "titanium" }) {
   const isTeaser = typeof limit === "number";
   const [shape, setShape] = useState<(typeof SHAPES)[number]>("All");
   const [sort, setSort] = useState<Sort>("popular");
@@ -50,11 +50,17 @@ export default function SpecCollections({ limit }: { limit?: number }) {
 
   const frames = useMemo(() => {
     let list = [...FRAMES];
+    if (line === "eyeglasses") list = list.filter((f) => f.line === "eyeglasses");
+    else if (line === "sunglasses") list = list.filter((f) => f.line === "sunglasses");
+    else if (line === "screen") list = list.filter((f) => f.screen);
+    else if (line === "titanium") list = list.filter((f) => f.metal);
     if (!isTeaser) {
       if (shape !== "All") list = list.filter((f) => f.shape === shape);
       if (wishOnly) list = list.filter((f) => wishlist.includes(f.sku));
     } else if (limit) {
-      list = list.slice(0, limit);
+      // Homepage teaser: curated mix of icons + new atelier arrivals.
+      const picks = ["SP-CL01", "SP-GR01", "SP-RS03", "SP-CE04", "SP-A02", "SP-BR08"];
+      list = picks.map((sku) => list.find((f) => f.sku === sku)!).filter(Boolean);
     }
     switch (sort) {
       case "price-asc":
@@ -71,7 +77,7 @@ export default function SpecCollections({ limit }: { limit?: number }) {
         break;
     }
     return list;
-  }, [shape, sort, wishOnly, wishlist, isTeaser, limit]);
+  }, [shape, sort, wishOnly, wishlist, isTeaser, limit, line]);
 
   return (
     <section aria-labelledby="frames-h" className="bg-sand py-16 lg:py-24">
