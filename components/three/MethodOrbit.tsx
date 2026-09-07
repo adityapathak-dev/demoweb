@@ -11,7 +11,7 @@ import * as THREE from "three";
  * in a slow gyroscopic orbit, linked by a hairline ring.
  */
 
-const NODE_COLORS = ["#2f6bff", "#3ee2ff", "#b6f34a", "#ff7a59"];
+const NODE_COLORS = ["#2f5bf5", "#3ee2ff", "#b6f34a", "#ff7a59"];
 
 function Centre() {
   const ref = useRef<THREE.Mesh>(null!);

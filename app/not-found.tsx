@@ -1,36 +1,30 @@
 import Link from "next/link";
 
-/** 404 — on-brand, with somewhere useful to go. */
 export default function NotFound() {
   return (
-    <div className="relative grid min-h-[80svh] place-items-center overflow-hidden px-5 pt-24 text-center">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/3 h-72 w-[36rem] -translate-x-1/2 rounded-full bg-brand/20 blur-[130px]"
-      />
-      <div className="relative max-w-md">
-        <p className="font-display text-7xl font-bold tracking-tight text-white/10 sm:text-8xl">
+    <div className="grid min-h-[80svh] place-items-center px-5 pt-24 text-center">
+      <div className="max-w-md">
+        <p className="pointer-events-none select-none text-[clamp(4rem,14vw,8rem)] font-semibold leading-none text-border" aria-hidden>
           404
         </p>
-        <h1 className="mt-2 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-          This page isn&apos;t in the syllabus.
+        <h1 className="mt-2 text-[clamp(1.6rem,3.2vw,2.4rem)] font-semibold leading-tight text-heading">
+          That page isn&apos;t on the prescriptions list.
         </h1>
-        <p className="mt-4 text-muted">
-          The page you&apos;re looking for doesn&apos;t exist — but the right class for
-          you does.
+        <p className="mt-4 text-smoke">
+          The page you&apos;re looking for doesn&apos;t exist — but the right frame for you does.
         </p>
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link
             href="/"
-            className="rounded-full bg-brand px-7 py-3 font-display text-sm font-bold text-white transition-colors hover:bg-[#4a82ff]"
+            className="rounded-lg bg-heading px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-ink"
           >
             Back home
           </Link>
           <Link
-            href="/programs"
-            className="rounded-full border border-white/20 px-7 py-3 font-display text-sm font-bold text-white"
+            href="/collections"
+            className="rounded-lg border border-border bg-white px-6 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-sand"
           >
-            Explore programs
+            Browse frames
           </Link>
         </div>
       </div>

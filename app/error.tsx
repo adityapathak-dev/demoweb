@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 
-/** Route error state — recovery, not a dead end. */
 export default function Error({
   reset,
 }: {
@@ -12,26 +11,26 @@ export default function Error({
   return (
     <div className="grid min-h-[70svh] place-items-center px-5 pt-24 text-center">
       <div className="max-w-md">
-        <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-warm">
+        <p className="text-xs font-semibold uppercase tracking-normal text-smoke">
           Something went wrong
         </p>
-        <h1 className="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">
+        <h1 className="mt-4 text-[clamp(1.8rem,3.6vw,2.6rem)] font-semibold leading-tight text-heading">
           Let&apos;s get you back on track.
         </h1>
-        <p className="mt-4 text-muted">
+        <p className="mt-4 text-smoke">
           An unexpected error interrupted this page. Try again, or head home.
         </p>
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
           <button
             type="button"
             onClick={reset}
-            className="rounded-full bg-brand px-7 py-3 font-display text-sm font-bold text-white transition-colors hover:bg-[#4a82ff]"
+            className="rounded-lg bg-heading px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-ink"
           >
             Try again
           </button>
           <Link
             href="/"
-            className="rounded-full border border-white/20 px-7 py-3 font-display text-sm font-bold text-white"
+            className="rounded-lg border border-border bg-white px-6 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-sand"
           >
             Back home
           </Link>

@@ -1,21 +1,37 @@
 /**
- * Excel Academy — intentional color system.
+ * Excel Academy — color system, audited like a studio would.
  *
- * One backbone (deep navy base + electric blue primary + cyan secondary),
- * every other hue is assigned a MEANING, never scattered decoratively.
+ * Restraint rule: one dominant neutral (~80% of pixels), one action accent,
+ * and a handful of meaning-carrying hues. Nothing here is "a nice color" —
+ * each token traces back to the business (a school: ink, paper-marks,
+ * subject identity, timetable time, report-card proof) or to a functional
+ * need (focus, success). All text pairings measured against WCAG AA.
  *
- * - Base: deep navy `abyss` — premium dark canvas. Vibrant light sources
- *   sit on top of it instead of rainbow-painted blocks.
- * - Primary `brand` (electric blue): the backbone. CTAs, active states,
- *   brand moments. Used everywhere.
- * - Secondary `pulse` (cyan): interactive/hover energy — underlines,
- *   focus rings, live/hover states, data highlights.
- * - `mind` (violet): intelligence moments — the 4-step method, founder/
- *   philosophy, "how we think" sections.
- * - `signal` (lime): proof & outcomes — results, toppers, growth deltas,
- *   success states.
- * - `warm` (coral): human voice — parent testimonial, contact, urgency
- *   that needs a human (WhatsApp / call).
+ * Token raison d'être, one sentence each:
+ * - `abyss`: the dominant neutral — a near-black navy that reads as a
+ *   chalkboard after hours, the surface ~80% of the UI sits on.
+ * - `navy` / `panel`: stepped elevations of the same neutral for footer,
+ *   bands and record rows, so depth comes from surface, not shadows.
+ * - `ink`: the chalk — body text at 18.6:1 on abyss.
+ * - `muted`: secondary text at 8.7:1 on abyss; the only other body-text tone.
+ * - `faint`: tertiary micro-text at 5.9:1; the dimmest text allowed anywhere.
+ * - `brand` (electric blue): school ink — the single action color for
+ *   buttons, active states and brand marks; tuned to 5.3:1 with white text
+ *   so every CTA passes AA (it sits where "blue pen on paper" sits).
+ * - `brandDeep`: the shaded side of the same ink, used only inside the
+ *   EA monogram gradient for depth.
+ * - `pulse` (cyan): live current — hovers, focus rings, active nav, the
+ *   "this responds to you" signal, at 13:1 on abyss.
+ * - `mind` (violet): the thinking color — method cycle, founder card,
+ *   philosophy; violet reads as contemplation against the blues.
+ * - `signal` (lime): the report-card highlighter — results, toppers and
+ *   growth deltas only, at 15.3:1.
+ * - `warm` (coral): the human voice — parent quote, contact, WhatsApp;
+ *   warmth against an otherwise cool, institutional palette.
+ * - `magenta`: exists for one reason — Computer Science owns it in the
+ *   subject mapping, so a CS student can track their color site-wide.
+ * - `amber`: exists for one reason — timetable time. Morning/afternoon/
+ *   evening batches and schedule hours read instantly as "time".
  *
  * Subjects each own one accent so a learner can track "their" color
  * across programs, schedule and results:
@@ -25,18 +41,17 @@ export const COLORS = {
   abyss: "#04070F",
   navy: "#0A1122",
   panel: "#0D1528",
-  line: "rgba(148, 178, 255, 0.14)",
   ink: "#F2F6FF",
   muted: "#9DABC9",
-  faint: "#64708E",
-  brand: "#2F6BFF", // electric blue — primary backbone
+  faint: "#7E8AAE",
+  brand: "#2F5BF5", // school ink; white text passes AA at 5.3:1
   brandDeep: "#1B3FBF",
-  pulse: "#3EE2FF", // cyan — interactive / hover energy
-  mind: "#8B5CF6", // violet — intelligence / method moments
-  signal: "#B6F34A", // lime — proof / outcomes
-  warm: "#FF7A59", // coral — human voice / contact
-  magenta: "#F064C8", // reserved: Computer Science + rare celebratory beats
-  amber: "#FFB020", // reserved: schedule / time highlights
+  pulse: "#3EE2FF", // live current — interactive/hover energy
+  mind: "#8B5CF6", // contemplation — method/founder moments
+  signal: "#B6F34A", // highlighter — proof/outcomes only
+  warm: "#FF7A59", // human voice — parent/contact moments
+  magenta: "#F064C8", // Computer Science identity
+  amber: "#FFB020", // timetable time
 } as const;
 
 /** Subject → accent mapping. Single source of truth for cards, dots, 3D orbs. */

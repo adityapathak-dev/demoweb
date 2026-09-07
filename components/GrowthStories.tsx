@@ -1,10 +1,9 @@
 "use client";
 
-import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 import { GROWTH_STORIES } from "@/lib/content";
 
-/** Percentage improvements — animated before/after bars. */
+/** Percentage improvements — before/after bars, numbers set once, no animation. */
 export default function GrowthStories() {
   const max = 100;
   return (
@@ -12,16 +11,12 @@ export default function GrowthStories() {
       <SectionHeading
         eyebrow="Growth stories"
         tone="signal"
-        title={
-          <>
-            Percentage <span className="text-gradient-signal">improvements.</span>
-          </>
-        }
-        lede="Real transformations from struggling to excelling — the proof of our teaching method."
+        title="From struggling to excelling."
+        lede="Real transformations — the proof of our teaching method."
       />
       <div className="mt-12 grid gap-5 md:grid-cols-2">
-        {GROWTH_STORIES.map((story, i) => (
-          <Reveal key={story.name} delay={i * 70}>
+        {GROWTH_STORIES.map((story) => (
+          <div key={story.name}>
             <article className="card-lift glass rounded-3xl p-7">
               <div className="flex items-baseline justify-between gap-4">
                 <div>
@@ -37,7 +32,7 @@ export default function GrowthStories() {
                 ].map((bar) => (
                   <div key={bar.label}>
                     <div className="mb-1.5 flex justify-between text-xs font-semibold tracking-wide">
-                      <span className="text-faint uppercase">{bar.label}</span>
+                      <span className="text-faint">{bar.label}</span>
                       <span className={bar.dim ? "text-muted" : "text-signal"}>{bar.value}</span>
                     </div>
                     <div className="h-2.5 overflow-hidden rounded-full bg-white/10">
@@ -54,7 +49,7 @@ export default function GrowthStories() {
                 ))}
               </div>
             </article>
-          </Reveal>
+          </div>
         ))}
       </div>
     </section>

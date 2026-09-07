@@ -1,55 +1,56 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, Space_Grotesk } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import ScrollProgress from "@/components/ScrollProgress";
-
-const display = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-});
+import SpecNavbar from "@/components/spec/Navbar";
+import CartDrawer from "@/components/spec/CartDrawer";
+import SpecFooter from "@/components/spec/Footer";
+import SpecReveal from "@/components/spec/Reveal";
+import SpecEffects from "@/components/spec/Effects";
+import { CartProvider } from "@/lib/cart";
 
 const body = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
-  display: "swap",
-});
-
-const serifAccent = Fraunces({
-  subsets: ["latin"],
-  style: ["italic"],
-  weight: ["400", "500", "600"],
-  variable: "--font-serif-accent",
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Excel Academy — Learn Smarter, Score Higher | Classes 8–12",
-    template: "%s — Excel Academy",
+    default: "SPEC Optical Studio — See Clearly, Look Sharp | HITEC City, Hyderabad",
+    template: "%s — SPEC Optical Studio",
   },
   description:
-    "Personalised coaching for Classes 8–12 with a focus on conceptual clarity, regular practice, and exam-ready preparation. Boards, JEE and NEET. Small batches, big results.",
-  keywords: ["coaching", "CBSE", "JEE", "NEET", "Classes 8-12", "board exams", "Excel Academy"],
+    "SPEC Optical Studio, Inorbit Mall Rd, HITEC City. Designer eyeglasses from ₹1,499, sunglasses, 20-min digital eye exams, same-day fitting. 4.9★ from 2,300+ customers.",
+  keywords: ["optical", "eyeglasses", "sunglasses", "eye test Hyderabad", "SPEC", "contact lenses"],
   openGraph: {
-    title: "Excel Academy — Learn Smarter, Score Higher",
-    description:
-      "Personalised coaching for Classes 8–12. Small batches, proven results, flexible timing.",
+    title: "SPEC Optical Studio — See Clearly, Look Sharp",
+    description: "Mall studio optician: 20-min eye exam, same-day lenses, 1-year warranty.",
     type: "website",
   },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${serifAccent.variable}`}>
-      <body className="bg-abyss text-ink font-sans">
-        <div aria-hidden className="grain-overlay" />
-        <ScrollProgress />
-        <Navbar />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+    <html lang="en" className={body.variable}>
+      <body className="bg-paper font-sans text-ink">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-ink focus:px-4 focus:py-2 focus:text-paper"
+        >
+          Skip to content
+        </a>
+        <CartProvider>
+          <SpecNavbar />
+          <main id="main" className="min-h-screen">
+            {children}
+          </main>
+          <SpecFooter />
+          <CartDrawer />
+          {/* Chatbot deferred per client call — see lib/chat/ seam. */}
+        </CartProvider>
+        <SpecReveal />
+        <SpecEffects />
       </body>
     </html>
   );

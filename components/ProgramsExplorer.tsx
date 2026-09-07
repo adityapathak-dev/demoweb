@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import Reveal from "./Reveal";
 import { ArrowRightIcon, ClockIcon, SparkIcon, UsersIcon } from "./icons";
 import { PROGRAMS } from "@/lib/content";
 import { CLASS_COLORS, SUBJECT_COLORS } from "@/lib/theme";
@@ -10,7 +9,10 @@ import { cn } from "@/lib/utils";
 
 const FILTERS = ["All Classes", "Class 8", "Class 9", "Class 10", "Class 11", "Class 12"];
 
-/** Filterable program ledger — one row per class, accent-coded. */
+/**
+ * Filterable program ledger — one flat row per class, accent-coded.
+ * Flat panel + hairline, not glass: these are records, not promos.
+ */
 export default function ProgramsExplorer() {
   const [filter, setFilter] = useState(FILTERS[0]);
   const visible =
@@ -18,7 +20,7 @@ export default function ProgramsExplorer() {
 
   return (
     <div>
-      <Reveal>
+      <div>
         <div className="flex flex-wrap gap-2.5" role="group" aria-label="Filter by class">
           {FILTERS.map((f) => (
             <button
@@ -36,15 +38,15 @@ export default function ProgramsExplorer() {
             </button>
           ))}
         </div>
-      </Reveal>
+      </div>
 
       <div className="mt-8 space-y-5">
-        {visible.map((program, i) => {
+        {visible.map((program) => {
           const accent = CLASS_COLORS[program.className] ?? "#3ee2ff";
           return (
-            <Reveal key={program.className} delay={Math.min(i, 3) * 60}>
+            <div key={program.className}>
               <article
-                className="card-lift glass relative overflow-hidden rounded-3xl p-7 sm:p-9"
+                className="card-lift relative overflow-hidden rounded-xl border border-white/10 bg-panel/70 p-7 sm:p-9"
                 style={{ borderTop: `2px solid ${accent}` }}
               >
                 <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr] lg:items-center">
@@ -65,7 +67,7 @@ export default function ProgramsExplorer() {
                         </span>
                       ))}
                     </div>
-                    <p className="mt-4 leading-relaxed text-muted">{program.blurb}</p>
+                    <p className="mt-4 max-w-[70ch] leading-relaxed text-muted">{program.blurb}</p>
                     <div className="mt-4 flex flex-wrap gap-2">
                       {program.subjects.map((subject) => (
                         <span
@@ -93,7 +95,7 @@ export default function ProgramsExplorer() {
                     </p>
                     <Link
                       href="/contact"
-                      className="btn-sheen group mt-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-6 py-2.5 font-display text-[13px] font-bold text-white transition-colors hover:bg-white/20"
+                      className="group mt-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-6 py-2.5 font-display text-[13px] font-bold text-white transition-colors hover:bg-white/20"
                     >
                       Enquire Now{" "}
                       <ArrowRightIcon className="text-sm transition-transform duration-300 group-hover:translate-x-1" />
@@ -101,7 +103,7 @@ export default function ProgramsExplorer() {
                   </div>
                 </div>
               </article>
-            </Reveal>
+            </div>
           );
         })}
       </div>

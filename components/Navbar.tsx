@@ -53,7 +53,7 @@ export default function Navbar() {
               >
                 <PhoneIcon className="text-[13px]" /> {CONTACT.phoneDisplay}
               </a>
-              <span className="hidden lg:inline">Mon – Sat · 8:00 AM – 8:00 PM</span>
+              <span className="hidden lg:inline">Mon – Sat, 8:00 AM – 8:00 PM</span>
             </p>
             <Link
               href="/contact"
@@ -76,7 +76,7 @@ export default function Navbar() {
               <span className="block font-display text-[15px] font-bold tracking-wide text-ink">
                 Excel Academy
               </span>
-              <span className="block text-[11px] tracking-[0.22em] text-faint uppercase">
+              <span className="block text-[11px] text-faint">
                 Classes 8–12
               </span>
             </span>
@@ -113,7 +113,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/contact"
-              className="btn-sheen rounded-full bg-brand px-5 py-2.5 font-display text-[13px] font-bold tracking-wide text-white transition-colors hover:bg-[#4a82ff]"
+              className="btn-sheen rounded-full bg-brand px-5 py-2.5 font-display text-[13px] font-bold tracking-wide text-white transition-colors hover:bg-[#2650DE]"
             >
               Book a Demo
             </Link>

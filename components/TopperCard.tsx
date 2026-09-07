@@ -1,5 +1,5 @@
 import type { Topper } from "@/lib/content";
-import Reveal from "./Reveal";
+import { cn } from "@/lib/utils";
 
 /**
  * Topper slip — set like a marksheet excerpt, not a SaaS card.
@@ -8,9 +8,11 @@ import Reveal from "./Reveal";
  * for outcomes.)
  */
 export default function TopperCard({ topper, index = 0 }: { topper: Topper; index?: number }) {
+  // each slip is pinned very slightly off-level, like results on a noticeboard
+  const tilt = index % 2 === 0 ? "sm:rotate-[0.5deg]" : "sm:-rotate-[0.5deg]";
   return (
-    <Reveal delay={index * 70}>
-      <article className="card-lift glass relative overflow-hidden rounded-2xl p-7">
+    <div className={cn(tilt)}>
+      <article className="card-lift glass relative overflow-hidden rounded-[10px] p-7">
         {/* ruled baseline */}
         <div
           aria-hidden
@@ -39,6 +41,6 @@ export default function TopperCard({ topper, index = 0 }: { topper: Topper; inde
           </div>
         </div>
       </article>
-    </Reveal>
+    </div>
   );
 }

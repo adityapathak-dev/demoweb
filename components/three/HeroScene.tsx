@@ -65,7 +65,7 @@ function Core() {
           roughness={0.12}
           clearcoat={1}
           clearcoatRoughness={0.15}
-          emissive="#2f6bff"
+          emissive="#2f5bf5"
           emissiveIntensity={0.28}
         />
       </mesh>
@@ -82,7 +82,7 @@ function Core() {
       <mesh scale={1.35}>
         <icosahedronGeometry args={[0.55, 2]} />
         <meshBasicMaterial
-          color="#2f6bff"
+          color="#2f5bf5"
           transparent
           opacity={0.35}
           blending={THREE.AdditiveBlending}
@@ -208,7 +208,7 @@ export default function HeroScene() {
       <directionalLight position={[4, 6, 6]} intensity={1.4} color="#ffffff" />
       <pointLight position={[-5, -2, 3]} intensity={60} distance={24} color="#3ee2ff" />
       <pointLight position={[5, 3, -2]} intensity={50} distance={24} color="#f064c8" />
-      <pointLight position={[0, 5, 4]} intensity={30} distance={22} color="#2f6bff" />
+      <pointLight position={[0, 5, 4]} intensity={30} distance={22} color="#2f5bf5" />
       <Rig>
         <Core />
         <GyroRings />

@@ -1,4 +1,3 @@
-import Reveal from "./Reveal";
 import { TESTIMONIAL } from "@/lib/content";
 
 /**
@@ -8,15 +7,15 @@ import { TESTIMONIAL } from "@/lib/content";
  */
 export default function Testimonial() {
   return (
-    <section className="relative mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
+    <section className="relative mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24">
       <div className="grid gap-10 lg:grid-cols-[220px_1fr] lg:gap-16">
-        <Reveal>
-          <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-warm lg:sticky lg:top-32">
-            What
-            <br className="hidden lg:block" /> parents say
-          </p>
-        </Reveal>
-        <Reveal delay={100}>
+        <div>
+          <div className="flex items-center gap-3 lg:sticky lg:top-32">
+            <span aria-hidden className="h-px w-8 bg-warm" />
+            <p className="text-sm font-semibold text-warm">What parents say</p>
+          </div>
+        </div>
+        <div>
           <blockquote>
             <p aria-hidden className="serif-accent text-7xl leading-none text-warm/60">
               &ldquo;
@@ -41,7 +40,7 @@ export default function Testimonial() {
               </span>
             </footer>
           </blockquote>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

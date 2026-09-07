@@ -44,7 +44,7 @@ export default function MagneticButton({
         "btn-sheen inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5",
         "font-display text-sm font-semibold tracking-wide transition-all duration-300",
         variant === "primary" &&
-          "bg-brand text-white shadow-[0_12px_32px_-12px_rgba(47,107,255,0.9)] hover:bg-[#4a82ff] hover:shadow-[0_16px_40px_-12px_rgba(47,107,255,0.9)]",
+          "bg-brand text-white shadow-[0_12px_32px_-12px_rgba(47,91,245,0.9)] hover:bg-[#2650DE] hover:shadow-[0_16px_40px_-12px_rgba(47,91,245,0.9)]",
         variant === "ghost" &&
           "border border-white/20 bg-white/5 text-ink backdrop-blur hover:border-pulse/60 hover:text-white",
         variant === "signal" &&

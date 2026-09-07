@@ -1,9 +1,8 @@
 import Link from "next/link";
-import Reveal from "./Reveal";
 
 /**
- * Inner-page header — breadcrumb + oversized title + lede.
- * Editorial, not card-based; each route tints it with its own accent.
+ * Inner-page header — breadcrumb + oversized title set in plain ink.
+ * No inline accent words: the tinted breadcrumb carries the route color.
  */
 export default function PageHero({
   crumb,
@@ -26,7 +25,7 @@ export default function PageHero({
         <div className="dot-grid absolute inset-0 opacity-25 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,black,transparent)]" />
       </div>
       <div className="relative mx-auto max-w-7xl px-5 pb-14 pt-36 sm:px-8 sm:pt-44">
-        <Reveal>
+        <div>
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs tracking-[0.18em] uppercase">
             <Link href="/" className="text-faint transition-colors hover:text-white">
               Home
@@ -36,13 +35,13 @@ export default function PageHero({
             </span>
             <span style={{ color: accent }}>{crumb}</span>
           </nav>
-          <h1 className="mt-5 max-w-4xl font-display text-[clamp(2.5rem,5.5vw,4.75rem)] font-bold leading-[1.02] tracking-tight">
+          <h1 className="mt-5 max-w-4xl font-display text-[clamp(2.5rem,5.5vw,4.75rem)] font-bold leading-[1.02] tracking-tight text-ink">
             {title}
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
             {lede}
           </p>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

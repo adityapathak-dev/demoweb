@@ -1,7 +1,7 @@
 import SectionHeading from "./SectionHeading";
-import Reveal from "./Reveal";
 import DemoForm from "./DemoForm";
 import MagneticButton from "./MagneticButton";
+import { ScribbleUnderline } from "./icons";
 import { CONTACT } from "@/lib/theme";
 
 /** Final CTA — contact channels + demo form, the conversion moment. */
@@ -19,13 +19,18 @@ export default function DemoCTA() {
             tone="warm"
             title={
               <>
-                See if Excel is right <span className="serif-accent text-gradient-brand">for your child.</span>
+                See if Excel is right
+                <br />
+                <span className="relative inline-block">
+                  <span className="serif-accent text-gradient-brand">for your child.</span>
+                  <ScribbleUnderline className="absolute -bottom-2 left-0 h-3 w-full text-warm" />
+                </span>
               </>
             }
             lede="Book a free demo class. No fees, no pressure — just a chance to experience our teaching approach."
           />
-          <Reveal delay={120}>
-            <ul className="mt-8 space-y-3 text-[15px]">
+          <div>
+            <ul className="mt-8 max-w-[70ch] space-y-3 text-[15px]">
               <li>
                 <a href={CONTACT.phoneHref} className="font-display font-bold text-white transition-colors hover:text-pulse">
                   {CONTACT.phoneDisplay}
@@ -44,19 +49,19 @@ export default function DemoCTA() {
               </li>
               <li className="text-muted">{CONTACT.hoursLines[0]}</li>
             </ul>
-          </Reveal>
-          <Reveal delay={180}>
+          </div>
+          <div>
             <div className="mt-8 flex flex-wrap gap-4">
               <MagneticButton href="/contact">Book a Demo</MagneticButton>
               <MagneticButton href="/results" variant="ghost">
                 See our results
               </MagneticButton>
             </div>
-          </Reveal>
+          </div>
         </div>
-        <Reveal delay={150}>
+        <div>
           <DemoForm />
-        </Reveal>
+        </div>
       </div>
     </section>
   );

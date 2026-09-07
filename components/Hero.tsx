@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import HeroCanvas from "./three/HeroCanvas";
 import MagneticButton from "./MagneticButton";
-import CountUp from "./CountUp";
 import { HERO_STATS } from "@/lib/content";
 
 /**
@@ -35,11 +34,13 @@ export default function Hero() {
 
   return (
     <section className="relative overflow-hidden">
-      {/* atmospheric light sources on the deep-navy base */}
+      {/* atmospheric light sources on the deep-navy base:
+          mostly cool blues, one warm counterpoint so it never reads
+          as default purple-blue gradient soup */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute -top-32 left-[-10%] h-[34rem] w-[34rem] rounded-full bg-brand/25 blur-[140px]" />
-        <div className="absolute right-[-8%] top-[20%] h-[28rem] w-[28rem] rounded-full bg-mind/20 blur-[140px]" />
         <div className="absolute bottom-[-20%] left-[30%] h-[24rem] w-[30rem] rounded-full bg-pulse/10 blur-[140px]" />
+        <div className="absolute right-[12%] top-[8%] h-56 w-56 rounded-full bg-warm/[0.07] blur-[100px]" />
         <div className="dot-grid absolute inset-0 opacity-30 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,black,transparent)]" />
       </div>
 
@@ -47,11 +48,11 @@ export default function Hero() {
         {/* copy */}
         <div className="relative z-10 max-w-2xl">
           <p
-            className="inline-flex animate-hero-rise items-center gap-2 rounded-full border border-pulse/30 bg-pulse/10 px-4 py-1.5 font-display text-[11px] font-bold uppercase tracking-[0.24em] text-pulse"
+            className="inline-flex animate-hero-rise items-center gap-2 rounded-full border border-pulse/30 bg-pulse/10 px-4 py-1.5 text-xs font-semibold text-pulse"
             style={{ animationDelay: "0ms" }}
           >
             <span className="h-1.5 w-1.5 animate-breathe rounded-full bg-pulse" />
-            Classes 8–12 · Boards · JEE · NEET
+            Classes 8–12, Boards, JEE, NEET
           </p>
           <h1
             className="mt-6 animate-hero-rise font-display text-[clamp(2.9rem,7.5vw,6.5rem)] font-bold leading-[0.98] tracking-tight"
@@ -74,7 +75,6 @@ export default function Hero() {
           >
             <MagneticButton href="/contact">
               Book a Free Demo
-              <span aria-hidden>→</span>
             </MagneticButton>
             <MagneticButton href="/programs" variant="ghost">
               Explore Programs
@@ -90,7 +90,7 @@ export default function Hero() {
                   key={t}
                   className="grid h-7 w-7 place-items-center rounded-full border border-abyss font-display text-[9px] font-bold text-white"
                   style={{
-                    background: ["#2f6bff", "#8b5cf6", "#b6f34a"][i],
+                    background: ["#2f5bf5", "#8b5cf6", "#b6f34a"][i],
                     color: i === 2 ? "#04070f" : "#fff",
                     zIndex: 3 - i,
                   }}
@@ -99,7 +99,7 @@ export default function Hero() {
                 </span>
               ))}
             </span>
-            Small batches · Max 15 students
+            Small batches, max 15 students
           </p>
         </div>
 
@@ -129,9 +129,9 @@ export default function Hero() {
           {HERO_STATS.map((stat) => (
             <div key={stat.label} className="flex flex-col px-2 py-5 lg:px-8 lg:py-6">
               <dd className="font-display text-3xl font-bold tabular-nums text-white lg:text-4xl">
-                <CountUp value={stat.value} />
+                {stat.value}
               </dd>
-              <dt className="mt-1 text-xs tracking-[0.18em] text-faint uppercase">
+              <dt className="mt-1 text-xs font-semibold text-faint">
                 {stat.label}
               </dt>
             </div>

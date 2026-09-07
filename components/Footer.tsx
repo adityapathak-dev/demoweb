@@ -38,19 +38,22 @@ export default function Footer() {
         className="pointer-events-none absolute -top-40 left-1/2 h-80 w-[60rem] -translate-x-1/2 rounded-full bg-brand/20 blur-[120px]"
       />
       <div className="relative mx-auto max-w-7xl px-5 pt-16 sm:px-8 sm:pt-20">
-        <div className="flex flex-col items-start justify-between gap-8 rounded-[2rem] border border-white/10 bg-gradient-to-br from-brand-deep/40 via-panel to-mind/20 p-8 sm:p-12 lg:flex-row lg:items-center">
+        <div className="flex flex-col items-start justify-between gap-8 rounded-[2rem] border border-white/10 bg-panel/70 p-8 sm:p-12 lg:flex-row lg:items-center">
           <div>
-            <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-pulse">
-              Limited seats · Max 15 per batch
-            </p>
+            <div className="flex items-center gap-3">
+              <span aria-hidden className="h-px w-8 bg-pulse" />
+              <p className="text-sm font-semibold text-pulse">Limited seats, max 15 per batch</p>
+            </div>
             <h2 className="mt-3 max-w-xl font-display text-3xl font-bold tracking-tight text-white sm:text-5xl">
-              Ready to see your child <span className="serif-accent text-gradient-brand">excel?</span>
+              Ready to see
+              <br />
+              your child excel?
             </h2>
           </div>
           <div className="flex shrink-0 flex-wrap gap-4">
             <Link
               href="/contact"
-              className="btn-sheen rounded-full bg-brand px-8 py-4 font-display text-sm font-bold text-white shadow-[0_12px_32px_-12px_rgba(47,107,255,0.9)] transition-colors hover:bg-[#4a82ff]"
+              className="btn-sheen rounded-full bg-brand px-8 py-4 font-display text-sm font-bold text-white shadow-[0_12px_32px_-12px_rgba(47,107,255,0.9)] transition-colors hover:bg-[#2650DE]"
             >
               Book a Free Demo
             </Link>
@@ -78,6 +81,9 @@ export default function Footer() {
               Personalised coaching for Classes 8–12. Building strong foundations, one
               student at a time.
             </p>
+            <p className="mt-3 text-sm font-semibold text-faint">
+              Est. 2012, New Delhi
+            </p>
             <div className="mt-6 space-y-2 text-sm text-muted">
               <a href={CONTACT.phoneHref} className="block transition-colors hover:text-pulse">
                 {CONTACT.phoneDisplay}
@@ -94,7 +100,7 @@ export default function Footer() {
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
             {COLUMNS.map((col) => (
               <div key={col.title}>
-                <h3 className="font-display text-xs font-bold uppercase tracking-[0.24em] text-faint">
+                <h3 className="text-sm font-semibold text-white">
                   {col.title}
                 </h3>
                 <ul className="mt-4 space-y-2.5">
@@ -112,7 +118,7 @@ export default function Footer() {
               </div>
             ))}
             <div>
-              <h3 className="font-display text-xs font-bold uppercase tracking-[0.24em] text-faint">
+              <h3 className="text-sm font-semibold text-white">
                 Contact
               </h3>
               <ul className="mt-4 space-y-2.5 text-sm text-muted">
@@ -139,7 +145,7 @@ export default function Footer() {
         </div>
         <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-7 text-xs text-faint sm:flex-row">
           <p>© 2024 Excel Academy. All rights reserved.</p>
-          <p className="tracking-[0.2em] uppercase">Learn smarter · Score higher</p>
+          <p>Learn smarter, score higher</p>
         </div>
       </div>
     </footer>

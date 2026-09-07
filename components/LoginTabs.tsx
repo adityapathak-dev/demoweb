@@ -71,7 +71,7 @@ export default function LoginTabs() {
         </label>
         <button
           type="submit"
-          className="btn-sheen mt-6 w-full rounded-full bg-brand py-3.5 font-display text-sm font-bold text-white transition-colors hover:bg-[#4a82ff]"
+          className="btn-sheen mt-6 w-full rounded-full bg-brand py-3.5 font-display text-sm font-bold text-white transition-colors hover:bg-[#2650DE]"
         >
           Sign In as {role === "teacher" ? "Teacher" : "Student"}
         </button>

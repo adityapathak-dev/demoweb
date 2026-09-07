@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useState } from "react";
 import SectionHeading from "./SectionHeading";
-import Reveal from "./Reveal";
 import { ArrowRightIcon, ArrowUpRightIcon } from "./icons";
 import { TRACKS } from "@/lib/content";
 import { SUBJECT_COLORS } from "@/lib/theme";
@@ -11,26 +10,28 @@ import { cn } from "@/lib/utils";
 
 /**
  * "What we teach" — a course index, not a card grid.
- * Left: the three tracks as ledger rows. Right: the selected track's
- * subjects set like an index, each with its own accent mark.
+ * Left: the three tracks as ledger rows (ordered by school stage).
+ * Right: the selected track's subjects, each with its own accent mark.
  */
 export default function Tracks() {
   const [active, setActive] = useState(TRACKS[1].id);
   const track = TRACKS.find((t) => t.id === active) ?? TRACKS[0];
 
   return (
-    <section className="relative mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
+    <section className="relative mx-auto max-w-7xl px-5 pb-16 pt-24 sm:px-8 sm:pb-20 sm:pt-32">
       <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
         <SectionHeading
           eyebrow="What we teach"
           title={
             <>
-              Pick a track. <span className="text-gradient-brand">See inside.</span>
+              Pick a track.
+              <br />
+              <span className="text-gradient-brand">See inside.</span>
             </>
           }
           lede="Programs built around where students are headed next — three tracks, one per stage of school."
         />
-        <Reveal delay={150}>
+        <div>
           <Link
             href="/programs"
             className="group inline-flex items-center gap-2 font-display text-sm font-bold tracking-wide text-pulse"
@@ -38,12 +39,12 @@ export default function Tracks() {
             Full program details
             <ArrowRightIcon className="transition-transform duration-300 group-hover:translate-x-1.5" />
           </Link>
-        </Reveal>
+        </div>
       </div>
 
       <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_1.35fr] lg:gap-14">
         {/* track ledger */}
-        <Reveal className="h-fit lg:sticky lg:top-28">
+        <div className="h-fit lg:sticky lg:top-28">
           <div role="tablist" aria-label="Program tracks">
             {TRACKS.map((t, i) => {
               const selected = active === t.id;
@@ -81,7 +82,7 @@ export default function Tracks() {
                   </span>
                   <span
                     className={cn(
-                      "font-display text-xs font-bold",
+                      "font-display text-xs font-bold tabular-nums",
                       selected ? "text-pulse" : "text-faint"
                     )}
                   >
@@ -91,14 +92,14 @@ export default function Tracks() {
               );
             })}
           </div>
-        </Reveal>
+        </div>
 
         {/* subject index */}
         <div key={track.id}>
-          {track.subjects.map((subject, i) => {
+          {track.subjects.map((subject) => {
             const color = SUBJECT_COLORS[subject] ?? "#3ee2ff";
             return (
-              <Reveal key={subject} delay={Math.min(i, 4) * 60}>
+              <div key={subject}>
                 <Link
                   href="/programs"
                   className="group flex items-center gap-4 border-t border-white/10 py-5 transition-colors last:border-b hover:border-pulse/30 sm:gap-6"
@@ -111,22 +112,22 @@ export default function Tracks() {
                     <span className="block font-display text-xl font-bold text-white transition-transform duration-300 group-hover:translate-x-1 sm:text-2xl">
                       {subject}
                     </span>
-                    <span className="mt-0.5 block text-xs font-semibold uppercase tracking-[0.2em] text-faint">
+                    <span className="mt-0.5 block text-xs text-faint">
                       {track.level}
                     </span>
                   </span>
                   <ArrowUpRightIcon className="shrink-0 text-xl text-faint transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-pulse" />
                 </Link>
-              </Reveal>
+              </div>
             );
           })}
-          <Reveal delay={120}>
-            <p className="mt-6 text-sm leading-relaxed text-faint">
+          <div>
+            <p className="mt-6 max-w-[70ch] text-sm leading-relaxed text-faint">
               {track.id === "competitive"
                 ? "Layered on top of schoolwork — board syllabus first, entrance temperament built alongside."
                 : "Every subject taught in batches of max 15, with weekly tests and doubt sessions."}
             </p>
-          </Reveal>
+          </div>
         </div>
       </div>
     </section>

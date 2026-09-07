@@ -1,23 +1,31 @@
-import Hero from "@/components/Hero";
-import Ticker from "@/components/Ticker";
-import Tracks from "@/components/Tracks";
-import WhyExcel from "@/components/WhyExcel";
-import ResultsPreview from "@/components/ResultsPreview";
-import MethodSection from "@/components/MethodSection";
-import Testimonial from "@/components/Testimonial";
-import DemoCTA from "@/components/DemoCTA";
+import SpecHero from "@/components/spec/Hero";
+import SpecTicker from "@/components/spec/Ticker";
+import SpecCollections from "@/components/spec/Collections";
+import ShopWall from "@/components/spec/ShopWall";
+import FaceFinder from "@/components/spec/FaceFinder";
+import TryOn from "@/components/spec/TryOn";
+import SpecServices from "@/components/spec/Services";
+import SpecBooking from "@/components/spec/Booking";
+import Lookbook from "@/components/spec/Lookbook";
+import Assurance from "@/components/spec/Assurance";
+import SpecTestimonials from "@/components/spec/Testimonials";
+import SpecFAQ from "@/components/spec/FAQ";
 
 export default function Home() {
   return (
     <>
-      <Hero />
-      <Ticker />
-      <Tracks />
-      <WhyExcel />
-      <ResultsPreview />
-      <MethodSection />
-      <Testimonial />
-      <DemoCTA />
+      <SpecHero />
+      <SpecTicker />
+      <ShopWall />
+      <SpecCollections limit={6} />
+      <FaceFinder />
+      <TryOn />
+      <SpecServices />
+      <SpecBooking />
+      <Lookbook />
+      <SpecTestimonials />
+      <Assurance />
+      <SpecFAQ />
     </>
   );
 }

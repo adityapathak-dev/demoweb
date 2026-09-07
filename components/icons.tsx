@@ -107,3 +107,34 @@ export function PinIcon(props: IconProps) {
     </Base>
   );
 }
+
+/**
+ * ScribbleUnderline — a hand-drawn stroke for marking one important
+ * phrase per page. Deliberately uneven; never used twice on a screen.
+ */
+export function ScribbleUnderline({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 220 14"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      preserveAspectRatio="none"
+      className={className}
+    >
+      <path
+        d="M4 9.5C60 4.5 120 4 216 8.5"
+        stroke="currentColor"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+      <path
+        d="M12 11.5C70 8 150 7.5 208 10.5"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        opacity="0.7"
+      />
+    </svg>
+  );
+}

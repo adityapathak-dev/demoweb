@@ -1,24 +1,24 @@
-# Excel Academy — Premium Rebuild (Next.js)
+# SPEC Optical Studio — Client Demo (Next.js)
 
-A ground-up art-directed redesign and migration to a genuine Next.js application
-for Excel Academy, a coaching institute for Classes 8–12 (Boards, JEE, NEET).
-Content is rebuilt exclusively from the reference site — no invented claims.
+Demo site for **SPEC Optical Studio**, Inorbit Mall Rd, HITEC City, Hyderabad —
+requested via Adarsh, for client review by Tuesday.
+
+Tagline: **"See clearly. Look sharp."**
 
 ## Stack
 
-- Next.js (App Router) + TypeScript (strict) + React server/client components
-- Tailwind CSS v4 (token-based theme in `app/globals.css`)
-- Three.js + React Three Fiber + Drei (lazy, client-only 3D scenes)
+- Next.js (App Router) + TypeScript + React server/client components
+- Tailwind CSS v4 (SPEC tokens in `app/globals.css`)
+- Three.js + React Three Fiber (procedural hero frame model, client-only, CSS fallback)
 
-## Structure
+## Routes
 
 ```
-app/               # routes: / /programs /results /approach /schedule /contact /login
-components/        # Navbar, Hero, Tracks, WhyExcel, ResultsPreview, MethodSection,
-                   # Testimonial, DemoCTA, forms, PageHero, StatBand, …
-components/three/  # HeroScene, MethodOrbit, ConstellationField + SceneGate fallback
-lib/               # content.ts (reference content), theme.ts (color system),
-                   # hooks.ts, utils.ts
+app/                  # / /collections /services /about /book /contact
+components/spec/      # Navbar, Hero, Hero3D, Ticker, Collections, Services,
+                      # Trust, Testimonials, Booking, Footer, Chatbot, …
+lib/spec.ts           # store facts, frames, services, testimonials (single source)
+SPEC-DESIGN.md        # design system + rationale + evolution log
 ```
 
 ## Develop
@@ -26,14 +26,15 @@ lib/               # content.ts (reference content), theme.ts (color system),
 ```bash
 npm install
 npm run dev      # http://localhost:3000
-npm run build    # production build (type-check + prerender)
+npm run build    # production build
 npm run lint
 ```
 
-## Design notes
+## Notes
 
-- Color system is documented in `lib/theme.ts`: electric-blue backbone + cyan
-  interaction energy on a deep-navy base; violet = method/intelligence, lime =
-  outcomes, coral = human voice; one accent per subject.
-- All 3D mounts only when WebGL is available, motion is not reduced, and the
-  scene is in view; otherwise a pure-CSS fallback carries the composition.
+- All copy, prices, hours and reviews are realistic demo content written for the
+  presentation — replace with the client's real facts before launch.
+- Chatbot deferred for Tuesday demo per client call: `components/spec/Chatbot.tsx`
+  + `lib/chat/` (knowledge/embeddings/retrieve) stay in the repo as the
+  Phase-4 seam but are not rendered. Re-enable by importing `SpecChatbot`
+  in `app/layout.tsx`.
